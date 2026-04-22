@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 from pathlib import Path
 from decouple import config
 from datetime import timedelta
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -222,36 +223,30 @@ LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
     'formatters': {
-        'json': {
-            'class': 'pythonjsonlogger.jsonlogger.JsonFormatter',
-            'format': '%(asctime)s %(name)s %(levelname)s %(message)s'
+        'verbose': {
+            'format': '[{levelname}] {asctime} | {name} | {filename} : {lineno} | {funcName}() | {message}',
+            'style':'{',
         }
     },
     'handlers': {
-        'file': {
-            'class': 'logging.handlers.RotatingFileHandler',
-            'filename': '/food_delivery_system_backend/apps/common/loggs/error.log',
-            'maxBytes': 1024*1024*15,  # 15MB
-            'backupCount': 10,
-            'formatter': 'json'
+        'error_file': {
+            'level': 'INFO',
+            'class': 'logging.FileHandler',
+            'filename': 'logs/error.log',
+            'formatter': 'verbose',
         },
-        'sentry': {
-            'level': 'ERROR',
-            'class': 'sentry_sdk.integrations.django.SentryHandler',
-        },
+        'console':{
+            'class':'logging.StreamHandler',
+            'formatter':'verbose',
+        }
     },
     'loggers': {
-        'django': {
-            'handlers': ['file', 'sentry'],
+        '':{
+            'handlers':['error_file','console'],
             'level': 'INFO',
             'propagate': False,
-        },
-        'core': {
-            'handlers': ['file', 'sentry'],
-            'level': 'INFO',
-            'propagate': False,
-        },
-    }
+        }
+    },
 }
 
 # Internationalization
