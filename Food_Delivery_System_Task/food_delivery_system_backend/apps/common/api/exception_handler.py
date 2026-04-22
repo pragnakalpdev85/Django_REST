@@ -1,0 +1,45 @@
+from rest_framework.views import exception_handler
+from rest_framework.response import Response
+from rest_framework import status
+from .exceptions import DomainError
+
+def api_exception_handler(exc, context):
+    """Global exception handler with single error format"""
+    
+    # Domain errors (business logic)
+    if isinstance(exc, DomainError):
+        return Response(
+            {
+                "error": {
+                    "code": exc.code,
+                    "message": exc.message,
+                    "fields": None
+                }
+            },
+            status=exc.status_code
+        )
+    
+    # DRF validation errors
+    response = exception_handler(exc, context)
+    if response is not None:
+        return Response(
+            {
+                "error": {
+                    "code": "VALIDATION_ERROR",
+                    "message": "Invalid input",
+                    "fields": response.data
+                }
+            },
+            status=response.status_code
+        )
+    
+    # Unhandled exceptions (500)
+    return Response(
+        {
+            "error": {
+                "code": "INTERNAL_SERVER_ERROR",
+                "message": "Something went wrong"
+            }
+        },
+        status=status.HTTP_500_INTERNAL_SERVER_ERROR
+    )

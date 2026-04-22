@@ -1,0 +1,73 @@
+from apps.orders.models import Order, Cart, OrderItem
+from django.db.models import Count
+from apps.common.utils.constants import DELIVERED, CANCELLED
+
+class OrderCartSelector:
+    """
+    Order and Cart selector manages different queries for Order Cart models.
+    """
+
+    def get_order_queryset():
+        """
+        returns queryset for order model
+        """
+        return (
+            Order.objects
+            .select_related('customer', 'restaurant', 'driver')
+            .prefetch_related('order_menu')
+            .annotate(items_count=Count('order_menu'))
+        )
+        
+    def get_active_orders(active):
+        """
+        Returns all the active orders
+        """
+        return (
+            Order.objects.all()
+            .select_related('customer', 'restaurant', 'driver')
+            .prefetch_related('order_menu')
+            .annotate(items_count=Count('order_menu'))
+            .filter(status__in=active)
+        )
+        
+    def get_history_orders():
+        """
+        Returns all the active orders
+        """
+        return (
+            Order.objects.all()
+            .select_related('customer', 'restaurant', 'driver')
+            .prefetch_related('order_menu')
+            .annotate(items_count=Count('order_menu'))
+            .filter(status__in=[DELIVERED, CANCELLED])
+        )
+        
+    def get_cart_by_customer(customer):
+        """
+        Returns cart of the customer
+        """
+        return (
+            Cart.objects
+            .filter(customer=customer)
+            .prefetch_related('cart_menu')
+        )
+        
+    def get_empty_cart():
+        """
+        Returns empty queryset
+        """
+        return Cart.objects.none()
+    
+    def get_orderitems_of_cart(cart):
+        """
+        Returns all order items of cart
+        """
+        return (
+            OrderItem.objects.all()
+            .select_related('cart')
+            .filter(cart = cart)
+        )
+        
+        
+        
+        
