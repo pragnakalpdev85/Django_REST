@@ -3,3 +3,4 @@ env_task/
 .pytest_cache/
 __pycache__/
 error.log
+migrations/
