@@ -15,12 +15,18 @@ from apps.restaurants.selectors import RestaurantSelector
 from apps.common.utils.custom_responses import success_response
 from apps.restaurants.api.v1.serializers import ReviewSerializer
 from apps.common.api.pagination import RestaurantPageNumberPagination
-from apps.common.utils.permissions import IsRestaurantOwner, IsProfileOwner
+from apps.common.utils.permissions import IsRestaurantOwner, IsProfileOwner, IsOwnerOrReadOnly
 from ..serializers import (
     RestaurantProfileSerializer, 
     RestaurantMenuItemSerializer, 
     RestaurantInfoSerializer,
     RestaurantCreateUpdateSerializer
+)
+from apps.common.utils.constants import (
+    RESTAURANT_CACHE_TIMEOUT,
+    RESTAURANT_PROFILE_CACHE_TIMEOUT,
+    POPULAR_RESTAURANT_CACHE_TIMEOUT,
+    MENUITEM_CACHE_TIMEOUT
 )
 
   
@@ -72,17 +78,26 @@ class RestaurantProfileViewSet(viewsets.ModelViewSet):
         return RestaurantProfileSerializer
         
         
-    def get_permissions_classes(self):
+    def get_permissions(self):
         """
         Returns permission classes based on the current action
         """
         
         if self.action == 'list':
-            return [AllowAny]
+            return [AllowAny()]
         elif self.action == 'create':
-            return [IsAuthenticated, IsRestaurantOwner]
+            return [IsAuthenticated(), IsRestaurantOwner()]
         
-        return [IsAuthenticated, IsProfileOwner, IsRestaurantOwner]
+        return [IsAuthenticated(), IsProfileOwner(), IsRestaurantOwner(), IsOwnerOrReadOnly()]
+    
+    def get_object(self):
+        """
+        checks permission at object level and returns object
+        """
+        obj = super().get_object()
+        self.check_object_permissions(self.request, obj)
+        
+        return obj
     
     
     @extend_schema(
@@ -133,7 +148,7 @@ class RestaurantProfileViewSet(viewsets.ModelViewSet):
         if page is not None:
             serializer = self.get_serializer(page, many=True)
             paginated_data = self.get_paginated_response(serializer.data).data
-            cache.set(cache_key, paginated_data, 5*60)
+            cache.set(cache_key, paginated_data, RESTAURANT_CACHE_TIMEOUT)
             return success_response(
                 message="List of restaurant retrieved successfully",
                 data=paginated_data, 
@@ -142,7 +157,7 @@ class RestaurantProfileViewSet(viewsets.ModelViewSet):
         
         serializer = self.get_serializer(queryset, many=True)
         
-        cache.set(cache_key, serializer.data, 5*60)
+        cache.set(cache_key, serializer.data, RESTAURANT_CACHE_TIMEOUT)
         return success_response(
             message="List of restaurant retrieved successfully",
             data=serializer.data, 
@@ -175,7 +190,7 @@ class RestaurantProfileViewSet(viewsets.ModelViewSet):
         service = RestaurantService(view_object=self, request_object=request)
         data = service.retrieve_restaurant_profile()
         
-        cache.set(cache_key, data, 10*60)
+        cache.set(cache_key, data, RESTAURANT_PROFILE_CACHE_TIMEOUT)
         
         return success_response(
             message="Restaurant profile retrieved successfully",
@@ -286,7 +301,7 @@ class RestaurantProfileViewSet(viewsets.ModelViewSet):
         items = self.get_queryset().filter(pk=pk).first()
         serializer = RestaurantMenuItemSerializer(items.restaurant_menuitem, many = True)
         
-        cache.set(cache_key, serializer.data, 15*60)
+        cache.set(cache_key, serializer.data, MENUITEM_CACHE_TIMEOUT)
         items = {'restaurant_menuitem': serializer.data}
         return success_response(
             message="Menu item of restaurant retrieved successfully",
@@ -323,7 +338,7 @@ class RestaurantProfileViewSet(viewsets.ModelViewSet):
         
         queryset = RestaurantSelector.get_popular_restaurants()
         serializer = self.get_serializer(queryset, many = True)
-        cache.set(cache_key, serializer.data, 30*60)
+        cache.set(cache_key, serializer.data, POPULAR_RESTAURANT_CACHE_TIMEOUT)
         
         return success_response(
             message="10 Most popular restaurants",

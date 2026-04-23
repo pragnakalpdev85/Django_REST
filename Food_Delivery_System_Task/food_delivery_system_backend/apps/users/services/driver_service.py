@@ -14,28 +14,36 @@ class DriverService:
         self.obj = view_object
         self.request = request_object
         
-    def list_drivers(self):
+    def list_drivers(self) -> list:
         """
         Retrieves all drivers from the database
+        
+        Returns:
+            List[dict]: Returns drivers information
         """
         queryset = self.obj.get_queryset()
         serializer = self.obj.get_serializer(queryset, many=True)
         return serializer.data
     
-    def retreive_driver_profile(self):
+    def retreive_driver_profile(self) -> dict:
         """
         Retrieves specific driver profile with id
+        
+        Returns:
+            dict: returns driver profile data into an ReturnDict Object
         """
         profile_obj = self.obj.get_object()
         serializer = self.obj.get_serializer(profile_obj)
         return serializer.data
     
-    def update_driver_profile(self, partial_flag):
+    def update_driver_profile(self, partial_flag) -> dict:
         """
         Validates request data and updates driver profile
         
         Args:
-            partial_flag (bool): retrun true if update to be performed is partially
+            partial_flag (bool): retrun true if update to be performed is partially\
+        Returns:
+            dict: returns driver profile data into an ReturnDict Object
         """
         profile_obj = self.obj.get_object()
         serializer = self.obj.get_serializer(
@@ -48,9 +56,12 @@ class DriverService:
         serializer.save()
         return serializer.data
     
-    def list_active_drivers(self):
+    def list_active_drivers(self) -> list:
         """
         Lists all drivers with active status
+        
+        Returns:
+            List[dict]: Returns drivers information
         """
         
         queryset = self.obj.get_queryset().filter(is_available=True).all()
@@ -58,9 +69,12 @@ class DriverService:
         
         return serializer.data
     
-    def toggle_availability_status(self):
+    def toggle_availability_status(self) -> dict:
         """
         Changes availability status of driver with given id
+        
+        Returns:
+            dict: returns driver profile data into an ReturnDict Object
         """
         
         driver = self.obj.get_object()

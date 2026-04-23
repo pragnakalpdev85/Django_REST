@@ -75,7 +75,9 @@ class Order(UUIDModel, DateTimeStamped):
             models.Index(fields=['restaurant'], name='restaurant_order_idx'),
             models.Index(fields=['customer'], name='customer_idx'),
             models.Index(fields=['driver'], name='driver_idx'),
-            models.Index(fields=['status'], name='status_idx')
+            models.Index(fields=['status'], name='status_idx'),
+            models.Index(fields=['customer', 'status'], name='order_customer_status_idx'),
+            models.Index(fields=['driver', 'status'], name='order_driver_status_idx'),
         ]
         
     def save(self, *args, **kwargs):

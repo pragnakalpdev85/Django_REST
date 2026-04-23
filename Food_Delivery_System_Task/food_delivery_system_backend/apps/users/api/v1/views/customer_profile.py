@@ -2,13 +2,13 @@ from rest_framework import viewsets, status
 from rest_framework.permissions import IsAuthenticated
 from drf_spectacular.utils import extend_schema, OpenApiResponse, extend_schema_view
 
-from apps.users.models import CustomerProfile
 from apps.users.services import CustomerService
-from apps.common.utils.permissions import IsProfileOwner
+from apps.users.selectors import ProfileSelectors
 from apps.common.utils.custom_responses import success_response
 from apps.users.api.v1.serializers import CustomerProfileSerializer
-from apps.users.selectors import ProfileSelectors
-
+from apps.common.api.pagination import CustomerProfilePageNumberPagination
+from apps.common.utils.permissions import IsProfileOwner, IsOwnerOrReadOnly
+from apps.users.models import CustomerProfile
 
 @extend_schema_view(
     partial_update=extend_schema(
@@ -33,13 +33,22 @@ class CustomerProfileViewSet(viewsets.ModelViewSet):
     destroy: Delete a customer profile instance.
     """
     serializer_class = CustomerProfileSerializer
-    permission_classes = [IsAuthenticated, IsProfileOwner]
+    permission_classes = [IsAuthenticated, IsProfileOwner, IsOwnerOrReadOnly]
     queryset = ProfileSelectors.get_customer_profile_queryset()
+    pagination_class = CustomerProfilePageNumberPagination
     
+    def get_object(self):
+        """
+        checks permission at object level and returns object
+        """
+        obj = super().get_object()
+        self.check_object_permissions(self.request, obj)
+        
+        return obj
     
-    @extend_schema(exclude=True)
+    @extend_schema(exclude = True)
     def create(self, request, *args, **kwargs):
-        pass
+        return super().create(request, *args, **kwargs)
     
     
     @extend_schema(

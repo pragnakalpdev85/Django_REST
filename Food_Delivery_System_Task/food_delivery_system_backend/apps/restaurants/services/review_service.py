@@ -13,9 +13,12 @@ class ReviewService:
         self.obj = view_object
         self.request = request_object
         
-    def create_review(self):
+    def create_review(self) -> dict:
         """
         Creates new view
+
+        Returns:
+            dict: returns review data in ReturnDict object
         """
         serializer = self.obj.get_serializer(data=self.request.data)
         serializer.is_valid(raise_exception=True)
@@ -23,18 +26,24 @@ class ReviewService:
         
         return serializer.data
     
-    def retrieve_review(self):
+    def retrieve_review(self) -> dict:
         """
         Retrieve review by id
+
+        Returns:
+            dict: returns review data in ReturnDict object
         """
         review = self.obj.get_object()
         serializer = self.obj.get_serializer(review)
         
         return serializer.data
     
-    def list_review(self):
+    def list_review(self) -> list:
         """
         Retrieves list of reviews
+        
+        Returns:
+            list: returns list of dictionaries containing review data
         """
         queryset = self.obj.filter_queryset(self.obj.get_queryset())
         page = self.obj.paginate_queryset(queryset)
@@ -45,9 +54,14 @@ class ReviewService:
         serializer = self.obj.get_serializer(queryset, many=True)
         return serializer.data
     
-    def update_review(self, partial_flag):
+    def update_review(self, partial_flag) -> dict:
         """
         updaes review by id id either partially or whole review
+        
+        Args:
+            partial_flag (bool): retrun true if update to be performed is partially else false
+        Returns:
+            dict: returns review data in ReturnDict object
         """
         review = self.obj.get_object()
         serializer = self.obj.get_serializer(

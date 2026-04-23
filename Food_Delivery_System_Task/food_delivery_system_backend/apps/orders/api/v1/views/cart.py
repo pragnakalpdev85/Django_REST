@@ -10,7 +10,7 @@ from apps.orders.selectors import OrderCartSelector
 from apps.restaurants.models import MenuItem
 from apps.orders.services import CartService
 from apps.orders.api.v1.serializers import CartSerializer, OrderMenuItemSerializer, OrderItemCreateSerializer
-from apps.common.utils.permissions import IsCustomer
+from apps.common.utils.permissions import IsCustomer, IsOwnerOrReadOnly
 from apps.common.utils.custom_responses import success_response
 
 
@@ -20,7 +20,7 @@ class CartViewSet(viewsets.ModelViewSet):
     Provides complete CRUD operations restricted to the authenticated customer.
     """
     serializer_class = CartSerializer
-    permission_classes = [IsAuthenticated, IsCustomer]
+    permission_classes = [IsAuthenticated, IsCustomer, IsOwnerOrReadOnly]
     throttle_classes = [UserRateThrottle]
 
 
@@ -33,6 +33,15 @@ class CartViewSet(viewsets.ModelViewSet):
         if hasattr(user, 'customer'):
             return OrderCartSelector.get_cart_by_customer(user.customer)
         return OrderCartSelector.get_empty_cart()
+    
+    def get_object(self):
+        """
+        checks permission at object level and returns object
+        """
+        obj = super().get_object()
+        self.check_object_permissions(self.request, obj)
+        
+        return obj
 
 
     @extend_schema(

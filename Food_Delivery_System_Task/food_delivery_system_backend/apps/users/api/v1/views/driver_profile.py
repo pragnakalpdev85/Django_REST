@@ -3,13 +3,11 @@ from rest_framework.decorators import action
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from drf_spectacular.utils import extend_schema, extend_schema_view, OpenApiResponse 
 
-from apps.users.models import DriverProfile
-from apps.restaurants.models import Review
 from apps.users.services import DriverService
 from apps.common.utils.custom_responses import success_response
 from apps.users.selectors import ProfileSelectors
 from apps.restaurants.api.v1.serializers import ReviewSerializer
-from apps.common.utils.permissions import IsRestaurantOwner, IsProfileOwner
+from apps.common.utils.permissions import IsRestaurantOwner, IsProfileOwner, IsOwnerOrReadOnly
 from apps.users.api.v1.serializers import DriverProfileSerializer, DriverInfoSerializer
 
 
@@ -37,6 +35,14 @@ class DriverProfileViewSet(viewsets.ModelViewSet):
     """
     queryset = ProfileSelectors.get_driver_profile_queryset()
     
+    def get_object(self):
+        """
+        checks permission at object level and returns object
+        """
+        obj = super().get_object()
+        self.check_object_permissions(self.request, obj)
+        
+        return obj
     
     def get_serializer_class(self):
         """
@@ -48,14 +54,14 @@ class DriverProfileViewSet(viewsets.ModelViewSet):
         return DriverProfileSerializer
     
     
-    def get_permission_classes(self):
+    def get_permissions(self):
         """
         Returns permission classes as per authorized actions for users
         """
         if self.action == 'list':
-            return [IsAuthenticated, IsRestaurantOwner]
+            return [IsAuthenticated(), IsRestaurantOwner(), IsOwnerOrReadOnly()]
         
-        return [IsAuthenticated, IsProfileOwner]
+        return [IsAuthenticated(), IsProfileOwner(), IsOwnerOrReadOnly()]
         
 
     @extend_schema(exclude=True)

@@ -125,9 +125,9 @@ class DriverProfile(UUIDModel, DateTimeStamped, AVGRating):
         self.is_available = not self.is_available
         self.save(update_fields=['is_available', 'updated_at'])
         
-    def update_averge_rating(self):
+    def update_average_rating(self):
         """Updates average rating of rating"""
-        return super().update_averge_rating(self.driver_review.all())
+        return super().update_average_rating(self.driver_review.all())
         
     def get_delivery_stats(self):
         """Returns dilivery stats of the driver"""

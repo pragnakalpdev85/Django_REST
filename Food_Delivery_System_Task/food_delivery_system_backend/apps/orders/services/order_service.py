@@ -29,9 +29,12 @@ class OrderService():
         self.obj = view_object
         self.request = request_object
         
-    def create_order(self):
+    def create_order(self) -> dict:
         """
         Creates new order
+        
+        returns:
+            dict: returns created orders data
         """
         data = self.request.data
         serializer = self.obj.get_serializer(data=data)
@@ -67,9 +70,14 @@ class OrderService():
         serializer = OrderSerializer(order)
         return serializer.data
     
-    def update_order(self, partial_flag):
+    def update_order(self, partial_flag) -> dict:
         """
         Updates order partially or whole order
+        
+        Args:
+            partial_flag (bool): retrun true if update to be performed is partially
+        Returns:
+            dict: returns updated orders data into ReturnDict object
         """
         order = self.obj.get_object()
         data = self.request.data.get('order_menu')
@@ -113,18 +121,24 @@ class OrderService():
         
         return self.obj.get_serializer(order).data
     
-    def retrieve_order(self):
+    def retrieve_order(self) -> dict:
         """
         retrieve order by id
+        
+        Returns:
+            dict: returns orders data into ReturnDict object
         """
         order = self.obj.get_object()
         serializer = self.obj.get_serializer(order)
         
         return serializer.data
     
-    def list_orders(self):
+    def list_orders(self) -> list:
         """
         Lists all orders
+        
+        Returns:
+            list: returns list of dictionaries of order datas
         """
         queryset = self.obj.filter_queryset(self.obj.get_queryset())
         page = self.obj.paginate_queryset(queryset)
@@ -135,9 +149,12 @@ class OrderService():
         serializer = self.obj.get_serializer(queryset, many=True)
         return serializer.data
     
-    def assign_driver_to_order(self):
+    def assign_driver_to_order(self) -> dict:
         """
         Assignes driver to an order
+        
+        Returns:
+            dict: returns orders data into ReturnDict object
         """
         
         order = self.obj.get_object()
@@ -154,9 +171,12 @@ class OrderService():
         serializer = self.obj.get_serializer(order)
         return serializer.data
     
-    def cancel_order(self):
+    def cancel_order(self) -> dict:
         """
         Cancel order
+        
+        Returns:
+            dict: returns orders data into ReturnDict object
         """
         order = self.obj.get_object()
         if not order.can_cancel():
@@ -167,9 +187,12 @@ class OrderService():
         serializer = self.obj.get_serializer(order)
         return serializer.data
     
-    def update_order_status(self):
+    def update_order_status(self) -> dict:
         """
         Updates status of the perticular order
+        
+        Returns:
+            dict: returns orders data into ReturnDict object
         """
         order = self.obj.get_object()
         VALID_TRANSITIONS = {
@@ -197,9 +220,12 @@ class OrderService():
         
         return serializer.data
     
-    def list_active_orders(self):
+    def list_active_orders(self) -> list:
         """
         Lists all active orders 
+        
+        Returns:
+            list: returns list of dictionaries of order datas
         """
         active = [PENDING, CONFIRMED, PREPARING, READY, PICKEDUP]
         queryset = OrderCartSelector.get_active_orders(active)
@@ -207,9 +233,12 @@ class OrderService():
         
         return serializer.data
     
-    def list_history_of_orders(self):
+    def list_history_of_orders(self) -> list:
         """
         Lists all cancelled or delivered orders
+        
+        Returns:
+            list: returns list of dictionaries of order datas
         """
         queryset = OrderCartSelector.get_history_orders()
         serializer = self.obj.get_serializer(queryset, many=True)

@@ -22,9 +22,12 @@ class CartService:
         self.request = request_object
     
 
-    def add_order_item_to_cart(self):
+    def add_order_item_to_cart(self) -> dict:
         """
         Addes new order item to the cart
+        
+        Returns:
+            dict: returns cart data in ReturnDict object
         """
         data = self.request.data
         serializer = OrderItemCreateSerializer(data=data)
@@ -48,9 +51,12 @@ class CartService:
         
         return cart_serializer.data
     
-    def remove_order_item_from_cart(self):
+    def remove_order_item_from_cart(self) -> dict:
         """
         Removes order item from cart
+        
+        Returns:
+            dict: returns cart data in ReturnDict object
         """
         data = self.request.data
         serializer = OrderItemCreateSerializer(data=data)

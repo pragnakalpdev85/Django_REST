@@ -4,14 +4,15 @@ from rest_framework.permissions import AllowAny, IsAuthenticated
 from drf_spectacular.utils import extend_schema, extend_schema_view, OpenApiResponse
 
 from apps.orders.services import OrderService
-from apps.common.utils.permissions import IsCustomer, IsRestaurantOwner
 from apps.common.api.filters import OrderFilters
 from apps.orders.selectors import OrderCartSelector
+from apps.common.api.throttle import OrderCreateThrottle
 from apps.common.api.pagination import OrdersCursorPagination
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.filters import SearchFilter, OrderingFilter
 from ..serializers import OrderSerializer, OrderCreateSerializer
 from apps.common.utils.custom_responses import success_response
+from apps.common.utils.permissions import IsCustomer, IsRestaurantOwner, IsRestaurantOwnerOrDriver, IsOwnerOrReadOnly
 
 
 @extend_schema_view(
@@ -42,16 +43,24 @@ class OrderViewSet(viewsets.ModelViewSet):
     filterset_class = OrderFilters
     pagination_class = OrdersCursorPagination
     
-    def get_permission_classes(self):
+    def get_throttles(self):
+        """
+        Returns custom throttle class based on current action
+        """
+        if self.action == 'create':
+            self.throttle_classes = [OrderCreateThrottle]
+        
+        return super().get_throttles()
+    
+    def get_permissions(self):
         """
         Returns permission classes based on current actions
         """
         if self.action == 'list':
-            return [IsAuthenticated, IsRestaurantOwner]
+            return [IsAuthenticated(), IsRestaurantOwner(), IsOwnerOrReadOnly()]
         
-        return [IsAuthenticated, IsCustomer] or [IsAuthenticated, IsRestaurantOwner]
+        return [IsAuthenticated(), IsCustomer(), IsOwnerOrReadOnly()]
         
-    
     def get_serializer_class(self):
         """
         Returns serializer class based on current actions
@@ -63,8 +72,17 @@ class OrderViewSet(viewsets.ModelViewSet):
 
     def get_queryset(self):
         """Reassigning queryset"""
-        base = OrderCartSelector.get_order_queryset()
+        base = OrderCartSelector.get_order_queryset(user=self.request.user)
         return base
+    
+    def get_object(self):
+        """
+        checks permission at object level and returns object
+        """
+        obj = super().get_object()
+        self.check_object_permissions(self.request, obj)
+        
+        return obj
     
     
     @extend_schema(
@@ -193,7 +211,7 @@ class OrderViewSet(viewsets.ModelViewSet):
         methods=['post'], 
         url_path='assign-driver',
         serializer_class=OrderSerializer,
-        permission_classes=[AllowAny]
+        permission_classes=[IsAuthenticated, IsRestaurantOwner]
     )
     def assign_driver(self, request, pk=None):
         "Assign_driver to the perticular order"
@@ -220,7 +238,7 @@ class OrderViewSet(viewsets.ModelViewSet):
         methods=['post'], 
         url_path='cancel',
         serializer_class=OrderSerializer,
-        permission_classes=[AllowAny]
+        permission_classes=[IsAuthenticated, IsCustomer]
     )
     def cancel(self, request, pk=None):
         """Cancel order with specific order id"""
@@ -246,7 +264,7 @@ class OrderViewSet(viewsets.ModelViewSet):
         detail=True, 
         methods=['post'], 
         url_path='update-status',
-        permission_classes=[AllowAny],
+        permission_classes=[IsAuthenticated,IsRestaurantOwnerOrDriver],
         serializer_class=OrderSerializer    
     )
     def update_status(self, request, pk=None):
@@ -272,7 +290,7 @@ class OrderViewSet(viewsets.ModelViewSet):
         detail=False, 
         methods=['get'], 
         url_path='active',
-        permission_classes=[AllowAny],
+        permission_classes=[IsAuthenticated, IsRestaurantOwner],
         serializer_class=OrderSerializer
     )
     def active(self, request):
@@ -311,5 +329,3 @@ class OrderViewSet(viewsets.ModelViewSet):
             data=data,
             status_code=status.HTTP_200_OK
         )
-    
-    

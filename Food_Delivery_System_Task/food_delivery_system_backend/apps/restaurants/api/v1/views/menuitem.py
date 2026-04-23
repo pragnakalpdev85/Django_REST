@@ -5,10 +5,9 @@ from drf_spectacular.utils import extend_schema, extend_schema_view, OpenApiResp
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.filters import SearchFilter, OrderingFilter
 
-from apps.restaurants.models import MenuItem, Review
 from apps.common.api.filters import MenuItemFilters
 from apps.restaurants.services import MenuItemService
-from apps.common.utils.permissions import IsRestaurantOwner
+from apps.common.utils.permissions import IsRestaurantOwner, IsOwnerOrReadOnly
 from apps.restaurants.selectors import MenuItemSelector
 from apps.common.utils.custom_responses import success_response
 from apps.common.api.pagination import MenuItemPageNumberPagination
@@ -49,7 +48,7 @@ class MenuItemViewSet(viewsets.ModelViewSet):
         
         return MenuItemSelector.get_menuitem_queryset()
     
-    
+
     def get_serializer_class(self):
         """
         Returns serializer class based on current action
@@ -60,14 +59,25 @@ class MenuItemViewSet(viewsets.ModelViewSet):
         return MenuItemSerializer
     
     
-    def get_permissions_classes(self):
+    def get_permissions(self):
         """
         Returns permission classes based on current action
         """
         if self.action in ['create', 'update', 'partial_update', 'delete']:
-            return [IsAuthenticated, IsRestaurantOwner]
+            return [IsAuthenticated(), IsRestaurantOwner(), IsOwnerOrReadOnly()]
         
-        return [AllowAny]
+        return [AllowAny(), IsOwnerOrReadOnly()]
+    
+    
+    def get_object(self):
+        """
+        checks permission at object level and returns object
+        """
+        obj = super().get_object()
+        self.check_object_permissions(self.request, obj)
+        
+        return obj
+    
         
     @extend_schema(
         summary="Creates new menuitem",

@@ -14,6 +14,7 @@ class RestaurantMenuItemSerializer(serializers.ModelSerializer):
     class Meta:
         model = MenuItem
         fields = [
+            'id',
             'name', 
             'price', 
             'is_available', 
@@ -21,5 +22,11 @@ class RestaurantMenuItemSerializer(serializers.ModelSerializer):
             'average_rating',
             'category', 
             'dietary_info', 
-            'total_reviews'
+            'total_reviews',
+        ]
+        read_only_fields = [
+            'id',
+            'total_reviews',
+            'created_at',
+            'updated_at',
         ]

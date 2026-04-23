@@ -18,10 +18,10 @@ def update_rating_on_review(sender, instance, **kwargs):
     """
 
     if instance.restaurant:
-        instance.restaurant.update_averge_rating()
+        instance.restaurant.update_average_rating()
     
     if instance.menu_item:
-        instance.menu_item.update_averge_rating()
+        instance.menu_item.update_average_rating()
 
         
 @receiver([post_save, post_delete], sender='restaurants.MenuItem')

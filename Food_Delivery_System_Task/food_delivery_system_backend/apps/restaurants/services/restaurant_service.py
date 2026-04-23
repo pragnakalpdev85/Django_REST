@@ -15,9 +15,12 @@ class RestaurantService:
         self.obj = view_object
         self.request = request_object
         
-    def create_restaurant_profile(self):
+    def create_restaurant_profile(self) -> dict:
         """
         Creates new restaurant profile
+        
+        Returns:
+            dict: returns restaurant profile data
         """
         serializer = self.obj.get_serializer(data=self.request.data)
         serializer.is_valid(raise_exception=True)
@@ -25,12 +28,14 @@ class RestaurantService:
         
         return serializer.data
     
-    def update_restaurant_profile(self, partial_flag):
+    def update_restaurant_profile(self, partial_flag) -> dict:
         """
         Updates restaurant profile data
         
         Args:
             partial_flag (bool): retrun true if update to be performed is partially
+        Returns:
+            dict: returns restaurant profile data
         """
         profile_object = self.obj.get_object()
         serializer = self.obj.get_serializer(
@@ -43,8 +48,13 @@ class RestaurantService:
         serializer.save()
         return serializer.data
     
-    def retrieve_restaurant_profile(self):
-        """Retrieves driver profile by id"""
+    def retrieve_restaurant_profile(self) -> dict:
+        """
+        Retrieves driver profile by id
+        
+        Returns:
+            dict: returns restaurant profile data
+        """
         profile_object = self.obj.get_object()
         serializer = self.obj.get_serializer(profile_object)
         

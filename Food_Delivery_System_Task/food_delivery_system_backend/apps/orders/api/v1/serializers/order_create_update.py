@@ -9,6 +9,11 @@ class OrderMenuItemSerializer(serializers.Serializer):
     """
     menu_item = serializers.UUIDField()
     quantity = serializers.IntegerField()
+    
+    def validate_quantity(self, value):
+        """validates quantity or the order item"""
+        if value <= 0:
+            return serializers.ValidationError("Quantity must be greater than zero")
 
 class OrderCreateSerializer(serializers.Serializer):
     """
@@ -46,7 +51,6 @@ class OrderCreateSerializer(serializers.Serializer):
         total = 0
 
         for item in order_items:
-            print(item)
             menu_item_id = item.get('menu_item')
             quantity = item.get('quantity', 1)
 

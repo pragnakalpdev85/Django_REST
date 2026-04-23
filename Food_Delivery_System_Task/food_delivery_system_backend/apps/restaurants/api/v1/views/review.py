@@ -5,7 +5,8 @@ from drf_spectacular.utils import extend_schema, extend_schema_view, OpenApiResp
 from ..serializers import ReviewSerializer
 from apps.restaurants.models import Review
 from apps.restaurants.services import ReviewService
-from apps.common.utils.permissions import IsCustomer
+from apps.common.utils.permissions import IsCustomer, IsOwnerOrReadOnly
+from apps.common.api.throttle import ReviewCreateThrottle
 from apps.common.utils.custom_responses import success_response
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.filters import SearchFilter, OrderingFilter
@@ -39,16 +40,23 @@ class ReviewViewSet(viewsets.ModelViewSet):
     pagination_class = ReviewLimitOffsetPagination
     ordering = ['-created_at']
 
+    def get_throttles(self):
+        """
+        Returns custome throttle class based on current action
+        """
+        if self.action == 'create':
+            self.throttle_classes = [ReviewCreateThrottle]
+        
+        return super().get_throttles()
 
     def get_permission_classes(self):
         """
         Returns permission classes according to current action
         """
         if self.action in ['list', 'retrieve']:
-            return [AllowAny]
+            return [AllowAny()]
         
-        return [IsAuthenticated, IsCustomer]
-        
+        return [IsAuthenticated(), IsCustomer(), IsOwnerOrReadOnly()]
 
     def get_queryset(self):
         """
@@ -59,6 +67,14 @@ class ReviewViewSet(viewsets.ModelViewSet):
             'customer', 'restaurant', 'menu_item', 'order', 'driver'
         )
         
+    def get_object(self):
+        """
+        checks permission at object level and returns object
+        """
+        obj = super().get_object()
+        self.check_object_permissions(self.request, obj)
+        
+        return obj
         
     @extend_schema(
         summary="Retrieves lists of all reviews",

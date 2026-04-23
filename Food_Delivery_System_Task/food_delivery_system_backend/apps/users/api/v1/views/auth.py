@@ -8,6 +8,7 @@ from apps.common.utils.custom_responses import success_response
 
 from apps.users.services import AuthService
 from apps.users.api.v1.serializers import RegisterSerializer
+from apps.common.api.throttle import LoginRateThrottle, RegistrationRateThrottle
 
 
 class AuthRegisterView(APIView):
@@ -16,6 +17,7 @@ class AuthRegisterView(APIView):
     Registers a new user with role.
     """
     permission_classes = [AllowAny]
+    throttle_classes = [RegistrationRateThrottle]
     
     @extend_schema(
         summary="Registers an user",
@@ -45,6 +47,7 @@ class AuthLoginView(APIView):
     Login a user and returns tokens
     """
     permission_classes = [AllowAny]
+    throttle_classes = [LoginRateThrottle]
     
     @extend_schema(
         summary="Login an user",

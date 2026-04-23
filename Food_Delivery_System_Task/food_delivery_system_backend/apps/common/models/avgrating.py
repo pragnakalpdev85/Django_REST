@@ -14,7 +14,7 @@ class AVGRating(models.Model):
     class Meta:
         abstract = True
         
-    def update_averge_rating(self, review_queryset):
+    def update_average_rating(self, review_queryset):
         """Updates average rating of the restaurant"""
         
         #gets reviews of perticular restaurant

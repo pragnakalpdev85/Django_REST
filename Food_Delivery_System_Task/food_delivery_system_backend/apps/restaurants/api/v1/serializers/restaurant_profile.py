@@ -2,6 +2,7 @@ from rest_framework import serializers
 from apps.restaurants.models import RestaurantProfile
 from .restaurant_menuitem import RestaurantMenuItemSerializer
 from apps.common.utils.validators import validate_avatar_image
+import datetime
 
 
 class RestaurantProfileSerializer(serializers.ModelSerializer):
@@ -17,7 +18,7 @@ class RestaurantProfileSerializer(serializers.ModelSerializer):
     owner_phone_number = serializers.CharField(source = 'owner.phone_number')
     
     #additional fields
-    is_open_now = serializers.SerializerMethodField()
+    is_open_now = serializers.SerializerMethodField(read_only=True)
     
     #nested menuitem serializer and item count field
     restaurant_menuitem = RestaurantMenuItemSerializer(many=True, read_only=True)
@@ -27,6 +28,7 @@ class RestaurantProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = RestaurantProfile
         fields = [
+            'id',
             'owner_name', 
             'owner_email', 
             'owner_phone_number',
@@ -46,6 +48,13 @@ class RestaurantProfileSerializer(serializers.ModelSerializer):
             'item_count',
             'restaurant_menuitem',
         ]
+        read_only_fields = [
+            'id',
+            'item_count',
+            'total_reviews',
+            'average_rating',
+        ]
+        
         
     def get_is_open_now(self, obj):
         """gets restaurant opening status"""
@@ -90,8 +99,20 @@ class RestaurantCreateUpdateSerializer(serializers.ModelSerializer):
         if value < 0:
             raise serializers.ValidationError("Delivery fee cannot be negative")
         return value
+    
+    def validate(self, data):
+        """Validates request data"""
+        format = "%H:%M"
+        open_time = datetime.strptime(data['opening_time'], format)
+        close_time = datetime.strptime(data['closing_time'], format)
+        
+        if close_time <= open_time:
+            raise serializers.ValidationError("Closing time must be after Opening time")
+        
+        return super().validate(data)
 
     def create(self, validated_data):
         """Inject the owner from the request"""
         validated_data['owner'] = self.context['request'].user
+        
         return super().create(validated_data=validated_data)

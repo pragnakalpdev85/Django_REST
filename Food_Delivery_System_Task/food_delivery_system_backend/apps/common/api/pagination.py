@@ -12,6 +12,19 @@ class RestaurantPageNumberPagination(PageNumberPagination):
     """
     
     page_size = 20
+    
+class CustomerProfilePageNumberPagination(PageNumberPagination):
+    """
+    Custom PageNumberPagination to handle specific QuerySet slicing for restaurant's data.
+
+    This class extends the PageNumberPagination to provide 
+    additional metadata for returning restaurants data.
+
+    Attributes:
+        page_size (int): The number of items to display on each page.
+    """
+    
+    page_size = 20
 
     
 class MenuItemPageNumberPagination(PageNumberPagination):

@@ -75,8 +75,8 @@ class RestaurantProfile(UUIDModel, DateTimeStamped, AVGRating):
             self.is_open = True if timezone.now().time() <= self.closing_time and timezone.now().time() > self.opening_time else False
         return self.is_open
     
-    def update_averge_rating(self):
-        return super().update_averge_rating(self.restaurant_review.all())
+    def update_average_rating(self):
+        return super().update_average_rating(self.restaurant_review.all())
     
     
 class MenuItem(UUIDModel, DateTimeStamped, AVGRating):
@@ -133,9 +133,9 @@ class MenuItem(UUIDModel, DateTimeStamped, AVGRating):
             models.Index(fields=['restaurant'], name='restaurant_menuitem_idx')
         ]
         
-    def update_averge_rating(self):
+    def update_average_rating(self):
         """Updates average rating of menu item"""
-        return super().update_averge_rating(self.menuitem_reviews.all())
+        return super().update_average_rating(self.menuitem_reviews.all())
     
         
 

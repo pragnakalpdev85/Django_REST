@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 from pathlib import Path
 from decouple import config
 from datetime import timedelta
-import os
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -26,10 +26,16 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('DEBUG')
+DEBUG = bool(config('DEBUG'))
 
 ALLOWED_HOSTS = ['localhost','127.0.0.1']
 
+SECURE_SSL_REDIRECT = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+SECURE_BROWSER_XSS_FILTER = True
+SECURE_CONTENT_TYPE_NOSNIFF = True
+X_FRAME_OPTIONS = 'DENY'
 
 # Application definition
 
@@ -94,8 +100,10 @@ TEMPLATES = [
 ]
 
 #CORS 
-CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",
+]
 
 # Allowed HTTP methods
 CORS_ALLOW_METHODS = [
@@ -130,12 +138,12 @@ SPECTACULAR_SETTINGS = {
 }
 
 SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=60),
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=15),
     
     'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
     
     'ROTATE_REFRESH_TOKENS': True,
-    
+      
     'BLACKLIST_AFTER_ROTATION': True,
     
     'UPDATE_LAST_LOGIN': True,
@@ -157,10 +165,57 @@ SIMPLE_JWT = {
 #Channel configrations
 ASGI_APPLICATION = 'food_delivery_system_backend.asgi.application'
 
+API_INVENTORY = {
+    'v1': {
+        'endpoints': [
+            '/api/v1/auth/register/', 
+            '/api/v1/auth/login/',
+            '/api/v1/token/obtain/',
+            '/api/v1/token/refresh/',
+            '/api/v1/customers/',
+            '/api/v1/customers/{id}/',
+            '/api/v1/drivers/',
+            '/api/v1/drivers/{id}/',
+            '/api/v1/drivers/{id}/reviews/',
+            '/api/v1/drivers/active/',
+            '/api/v1/drivers/{id}/toggle-availability/',
+            '/api/v1/menuitems/',
+            '/api/v1/menuitems/{id}/',
+            '/api/v1/menuitems/toggle-availability/',
+            '/api/v1/menuitems/{id}/reviews/',
+            '/api/v1/restaurants/',
+            '/api/v1/restaurants/{id}/',
+            '/api/v1/restaurants/{id}/menu/',
+            '/api/v1/restaurants/active/',
+            '/api/v1/restaurants/popular/',
+            '/api/v1/restaurants/{id}/reviews/',
+            '/api/v1/restaurants/owner-restaurants/',
+            '/api/v1/reviews/',
+            '/api/v1/reviews/{id}/',
+            '/api/v1/carts/',
+            '/api/v1/carts/{id}/',
+            '/api/v1/carts/add-to-cart',
+            '/api/v1/carts/remove-from-cart',
+            '/api/v1/orders/',
+            '/api/v1/orders/{id}/',
+            '/api/v1/orders/{id}/assign-driver/',
+            '/api/v1/orders/{id}/cancel/',
+            '/api/v1/orders/active/',
+            '/api/v1/orders/history/',
+            '/api/v1/orders/{id}/update-status/',
+        ],
+        'status': 'active',
+        'environment': 'development'
+    },
+}
+
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ],    
+    'DEFAULT_RENDERER_CLASSES': [
+        'rest_framework.renderers.JSONRenderer',
+    ],
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.IsAuthenticated',
     ],
@@ -180,7 +235,14 @@ REST_FRAMEWORK = {
         "user": "1000/hour",
         "order_create": "20/hour",
         "review_create": "10/hour",
-    }
+        "login": "5/hour",
+        "registration": "5/hour",
+    },
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 20,
+    'DEFAULT_VERSIONING_CLASS': 'rest_framework.versioning.URLPathVersioning',
+    'DEFAULT_VERSION': 'v1',
+    'ALLOWED_VERSIONS': ['v1'],
 }
 
 # Database

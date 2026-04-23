@@ -58,3 +58,22 @@ class IsProfileOwner(BasePermission):
             return request.user.is_authenticated
         return obj.user == request.user
     
+class IsRestaurantOwnerOrDriver(BasePermission):
+    """
+    Allows access only to user roles delivery driver or the restaurant owner
+    """
+    def has_permission(self, request, view):
+        restaurant = (
+            request.user
+            and request.user.is_authenticated
+            and request.user.role == RESTAURANT
+        )
+        
+        driver = (
+            request.user
+            and request.user.is_authenticated
+            and request.user.role == DRIVER
+        )
+        
+        return restaurant or driver
+    

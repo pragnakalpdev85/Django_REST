@@ -14,12 +14,14 @@ class CustomerService:
         self.obj = view_object
         self.request = request_object
         
-    def update_profile(self, partial_flag):
+    def update_profile(self, partial_flag) -> dict:
         """
         Validates request data and updates profile data
         
         Args:
            partial_flag (bool): update partialy or full flag 
+        Returns: 
+            dict: customer profile data in RetrunDict object
         """
         
         profile_obj = self.obj.get_object()

@@ -21,12 +21,15 @@ class AuthService:
         self.obj = view_object
         self.request = request_object
         
-    def register_user(self):
+    def register_user(self) -> dict:
         """
         Handles register functionalities business logic
         
         Method validates request data and registers new User with 
         specific roles
+        
+        Returns:
+            dict: data with access and refresh token
         """
         serializer = RegisterSerializer(data=self.request.data)
         serializer.is_valid(raise_exception=True)
@@ -44,12 +47,15 @@ class AuthService:
             "status_code": 201,
         }
         
-    def login_user(self):
+    def login_user(self) -> dict:
         """
         Handles login functionality business logic
         
         Method validates request data and login user and returns 
         jwt access and refresh tokens
+        
+        Returns:
+            dict: returns data prepared for response with access and refresh tokens 
         """
         user = authenticate(
             request=self.request,

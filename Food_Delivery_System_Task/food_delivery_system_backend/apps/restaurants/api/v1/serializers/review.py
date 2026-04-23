@@ -12,12 +12,14 @@ class ReviewSerializer(serializers.ModelSerializer):
     incoming data for creating or updating Review.
     """
 
+    comment = serializers.CharField(min_length=5, max_length=1200)
+
     class Meta:
         model = Review
         fields = [
             'id', 
             'customer', 
-            'restaurant', 
+            'restaurant', -
             'menu_item',
             'order', 
             'driver', 
