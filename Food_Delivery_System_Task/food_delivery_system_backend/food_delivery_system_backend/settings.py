@@ -295,11 +295,20 @@ LOGGING = {
         }
     },
     'handlers': {
-        'error_file': {
+        'security_file': {
+            'level': 'WARNING',
+            'class': 'logging.FileHandler',
+            'filename': 'logs/security.log',
+        },
+        'access_file': {
             'level': 'INFO',
             'class': 'logging.FileHandler',
-            'filename': 'logs/error.log',
-            'formatter': 'verbose',
+            'filename': 'logs/access.log',
+        },
+        'logic_file': {
+            'level': 'ERROR',
+            'class': 'logging.FileHandler',
+            'filename': 'logs/business_logic.log',
         },
         'console':{
             'class':'logging.StreamHandler',
