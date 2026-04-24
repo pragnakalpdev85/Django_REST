@@ -1,6 +1,7 @@
-migrations/
 env_task/
 .env
 .pytest_cache/
 __pycache__/
 error.log
+**/migrations/*
+!**/migrations/__init__.py
