@@ -3,6 +3,7 @@ from django.contrib.auth import authenticate
 
 from apps.users.api.v1.serializers import RegisterSerializer
 from apps.common.api.exceptions import DomainError, ErrorCodes
+from apps.common.utils.constants import CUSTOMER, RESTAURANT, DRIVER
 
 
 class AuthService:
@@ -67,6 +68,15 @@ class AuthService:
             raise DomainError(ErrorCodes.INVALID_CREDENTIALS)
         
         refresh = RefreshToken.for_user(user)
+        serializer = RegisterSerializer(user)
+        
+        profile_id = None
+        if user.role == CUSTOMER:
+            profile_id = user.customer.id
+        elif user.role == DRIVER:
+            profile_id = user.driver.id
+        elif user.role == RESTAURANT:
+            profile_id = user.id
         
         return {
             "success": True,
@@ -75,7 +85,7 @@ class AuthService:
                 "refresh": str(refresh),
                 "access": str(refresh.access_token)     
             },
+            "profile_id": profile_id,
             "role": user.role
         }
         
-    

@@ -1,6 +1,7 @@
 from rest_framework import viewsets, status
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated,AllowAny
 from drf_spectacular.utils import extend_schema, OpenApiResponse, extend_schema_view
+from rest_framework.decorators import action
 
 from apps.users.services import CustomerService
 from apps.users.selectors import ProfileSelectors
@@ -135,3 +136,34 @@ class CustomerProfileViewSet(viewsets.ModelViewSet):
             "Customer Profile deleted", 
             status_code=status.HTTP_204_NO_CONTENT
         )    
+        
+    @extend_schema(
+        summary="Uploads customers avatar",
+        description="Upload image of the customer profile avatar",
+        responses={
+            200: CustomerProfileSerializer,
+            404: OpenApiResponse(description="Profile not found")
+        },
+        tags=['CustomerProfile'])
+    @action(
+        detail=True,
+        methods=['post'],
+        permission_classes=[IsAuthenticated, IsProfileOwner],
+        serializer_class=CustomerProfileSerializer,
+        url_path="upload-avatar"
+    )
+    def upload_avatar(self, request, pk=None, *args, **kwargs):
+        """
+        Uploads image to an customer's profile
+        """
+        profile_object = self.get_object()
+        data = {'avatar': request.data.get('avatar', None)}
+        serializer = self.get_serializer(data=data, partial=True)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        
+        return success_response(
+            "Avatar Uploaded successfully",
+            data=serializer.data,
+            status_code=status.HTTP_200_OK
+        )

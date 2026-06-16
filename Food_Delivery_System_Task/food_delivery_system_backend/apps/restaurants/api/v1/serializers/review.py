@@ -19,7 +19,7 @@ class ReviewSerializer(serializers.ModelSerializer):
         fields = [
             'id', 
             'customer', 
-            'restaurant', -
+            'restaurant',
             'menu_item',
             'order', 
             'driver', 

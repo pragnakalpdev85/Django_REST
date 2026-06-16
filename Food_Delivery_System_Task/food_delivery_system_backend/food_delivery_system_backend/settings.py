@@ -30,7 +30,7 @@ DEBUG = config('DEBUG', default=False, cast=bool)
 
 ALLOWED_HOSTS = ['localhost','127.0.0.1']
 
-SECURE_SSL_REDIRECT = True
+SECURE_SSL_REDIRECT = False
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
 SECURE_BROWSER_XSS_FILTER = True
@@ -317,7 +317,7 @@ LOGGING = {
     },
     'loggers': {
         '':{
-            'handlers':['error_file','console'],
+            'handlers':['console', 'logic_file', 'access_file', 'security_file'],
             'level': 'INFO',
             'propagate': False,
         }

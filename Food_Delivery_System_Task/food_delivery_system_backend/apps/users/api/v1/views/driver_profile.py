@@ -227,3 +227,34 @@ class DriverProfileViewSet(viewsets.ModelViewSet):
             data=serializer.data,
             status_code=status.HTTP_200_OK
         )
+        
+    @extend_schema(
+        summary="Uploads Driver avatar",
+        description="Upload image of the Driver profile avatar",
+        responses={
+            200: DriverProfileSerializer,
+            404: OpenApiResponse(description="Profile not found")
+        },
+        tags=['DriverProfile'])
+    @action(
+        detail=True,
+        methods=['post'],
+        permission_classes=[IsAuthenticated, IsProfileOwner],
+        serializer_class=DriverProfileSerializer,
+        url_path="upload-avatar"
+    )
+    def upload_avatar(self, request, pk=None, *args, **kwargs):
+        """
+        Uploads image to an driver's profile
+        """
+        profile_object = self.get_object()
+        data = {'avatar': request.data.get('avatar', None)}
+        serializer = self.get_serializer(data=data, partial=True)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        
+        return success_response(
+            "Avatar Uploaded successfully",
+            data=serializer.data,
+            status_code=status.HTTP_200_OK
+        )

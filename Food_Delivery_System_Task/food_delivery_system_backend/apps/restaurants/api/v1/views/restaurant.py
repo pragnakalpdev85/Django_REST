@@ -405,5 +405,65 @@ class RestaurantProfileViewSet(viewsets.ModelViewSet):
             status_code=status.HTTP_200_OK
         )
         
+    
+    @extend_schema(
+        summary="Uploads Restaurant logo",
+        description="Upload image of the restaurant profile logo",
+        responses={
+            200: RestaurantProfileSerializer,
+            404: OpenApiResponse(description="Profile not found")
+        },
+        tags=['RestaurantProfile'])
+    @action(
+        detail=True,
+        methods=['post'],
+        permission_classes=[IsAuthenticated, IsProfileOwner],
+        serializer_class=RestaurantProfileSerializer,
+        url_path="upload-logo"
+    )
+    def upload_logo(self, request, pk=None, *args, **kwargs):
+        """
+        Uploads image to an restaurant's profile
+        """
+        profile_object = self.get_object()
+        data = {'logo': request.data.get('logo', None)}
+        serializer = self.get_serializer(data=data, partial=True)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
         
+        return success_response(
+            "logo Uploaded successfully",
+            data=serializer.data,
+            status_code=status.HTTP_200_OK
+        )
         
+    @extend_schema(
+        summary="Uploads Restaurant banner",
+        description="Upload image of the restaurant profile banner",
+        responses={
+            200: RestaurantProfileSerializer,
+            404: OpenApiResponse(description="Profile not found")
+        },
+        tags=['RestaurantProfile'])
+    @action(
+        detail=True,
+        methods=['post'],
+        permission_classes=[IsAuthenticated, IsProfileOwner],
+        serializer_class=RestaurantProfileSerializer,
+        url_path="upload-banner"
+    )
+    def upload_banner(self, request, pk=None, *args, **kwargs):
+        """
+        Uploads image to an restaurant's profile
+        """
+        profile_object = self.get_object()
+        data = {'banner': request.data.get('banner', None)}
+        serializer = self.get_serializer(data=data, partial=True)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        
+        return success_response(
+            "banner Uploaded successfully",
+            data=serializer.data,
+            status_code=status.HTTP_200_OK
+        )

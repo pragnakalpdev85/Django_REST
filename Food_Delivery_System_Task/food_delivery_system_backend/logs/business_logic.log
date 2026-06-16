@@ -1,0 +1,131 @@
+IP: 127.0.0.1 | Exception: Field.__init__() got an unexpected keyword argument 'validate_only' | View: <apps.users.api.v1.views.customer_profile.CustomerProfileViewSet object at 0x70aa5d336a40> | Method: POST | Path: /api/v1/customers/e7389761-dc7e-4a66-a004-91a28e8e9a61/upload-avatar/
+Traceback (most recent call last):
+  File "/home/pragnakalpl24/.local/lib/python3.10/site-packages/rest_framework/views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/pragnakalpl24/Downloads/Django/Django_REST/Food_Delivery_System_Task/food_delivery_system_backend/apps/users/api/v1/views/customer_profile.py", line 161, in upload_avatar
+    serializer = self.get_serializer(data=data, validate_only='avatar')
+  File "/home/pragnakalpl24/.local/lib/python3.10/site-packages/rest_framework/generics.py", line 114, in get_serializer
+    return serializer_class(*args, **kwargs)
+  File "/home/pragnakalpl24/.local/lib/python3.10/site-packages/rest_framework/serializers.py", line 121, in __init__
+    super().__init__(**kwargs)
+TypeError: Field.__init__() got an unexpected keyword argument 'validate_only'
+Internal Server Error: /api/v1/customers/e7389761-dc7e-4a66-a004-91a28e8e9a61/upload-avatar/
+IP: 127.0.0.1 | Exception: {'email': [ErrorDetail(string='This field is required.', code='required')], 'phone_number': [ErrorDetail(string='This field is required.', code='required')]} | View: <apps.users.api.v1.views.customer_profile.CustomerProfileViewSet object at 0x7c8706b3ea40> | Method: POST | Path: /api/v1/customers/e7389761-dc7e-4a66-a004-91a28e8e9a61/upload-avatar/
+Traceback (most recent call last):
+  File "/home/pragnakalpl24/.local/lib/python3.10/site-packages/rest_framework/views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/pragnakalpl24/Downloads/Django/Django_REST/Food_Delivery_System_Task/food_delivery_system_backend/apps/users/api/v1/views/customer_profile.py", line 162, in upload_avatar
+    serializer.is_valid(raise_exception=True)
+  File "/home/pragnakalpl24/.local/lib/python3.10/site-packages/rest_framework/serializers.py", line 233, in is_valid
+    raise ValidationError(self.errors)
+rest_framework.exceptions.ValidationError: {'email': [ErrorDetail(string='This field is required.', code='required')], 'phone_number': [ErrorDetail(string='This field is required.', code='required')]}
+IP: 127.0.0.1 | Exception: null value in column "user_id" of relation "customer_profiles" violates not-null constraint
+DETAIL:  Failing row contains (2026-06-16 05:31:11.462714+00, 2026-06-16 05:31:11.462744+00, e8658659-4d91-43a6-afb6-e4b9af4c27d1, customer_profile_images/Screenshot_from_2026-06-08_10-20-26.png, null, [], 0, 0, null).
+ | View: <apps.users.api.v1.views.customer_profile.CustomerProfileViewSet object at 0x722058732a40> | Method: POST | Path: /api/v1/customers/e7389761-dc7e-4a66-a004-91a28e8e9a61/upload-avatar/
+Traceback (most recent call last):
+  File "/home/pragnakalpl24/.local/lib/python3.10/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.NotNullViolation: null value in column "user_id" of relation "customer_profiles" violates not-null constraint
+DETAIL:  Failing row contains (2026-06-16 05:31:11.462714+00, 2026-06-16 05:31:11.462744+00, e8658659-4d91-43a6-afb6-e4b9af4c27d1, customer_profile_images/Screenshot_from_2026-06-08_10-20-26.png, null, [], 0, 0, null).
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/pragnakalpl24/.local/lib/python3.10/site-packages/rest_framework/views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/pragnakalpl24/Downloads/Django/Django_REST/Food_Delivery_System_Task/food_delivery_system_backend/apps/users/api/v1/views/customer_profile.py", line 163, in upload_avatar
+    serializer.save()
+  File "/home/pragnakalpl24/.local/lib/python3.10/site-packages/rest_framework/serializers.py", line 210, in save
+    self.instance = self.create(validated_data)
+  File "/home/pragnakalpl24/.local/lib/python3.10/site-packages/rest_framework/serializers.py", line 991, in create
+    instance = ModelClass._default_manager.create(**validated_data)
+  File "/home/pragnakalpl24/.local/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/pragnakalpl24/.local/lib/python3.10/site-packages/django/db/models/query.py", line 665, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/home/pragnakalpl24/.local/lib/python3.10/site-packages/django/db/models/base.py", line 902, in save
+    self.save_base(
+  File "/home/pragnakalpl24/.local/lib/python3.10/site-packages/django/db/models/base.py", line 1008, in save_base
+    updated = self._save_table(
+  File "/home/pragnakalpl24/.local/lib/python3.10/site-packages/django/db/models/base.py", line 1169, in _save_table
+    results = self._do_insert(
+  File "/home/pragnakalpl24/.local/lib/python3.10/site-packages/django/db/models/base.py", line 1210, in _do_insert
+    return manager._insert(
+  File "/home/pragnakalpl24/.local/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/pragnakalpl24/.local/lib/python3.10/site-packages/django/db/models/query.py", line 1873, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/home/pragnakalpl24/.local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1882, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/pragnakalpl24/.local/lib/python3.10/site-packages/django/db/backends/utils.py", line 122, in execute
+    return super().execute(sql, params)
+  File "/home/pragnakalpl24/.local/lib/python3.10/site-packages/django/db/backends/utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+  File "/home/pragnakalpl24/.local/lib/python3.10/site-packages/django/db/backends/utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/pragnakalpl24/.local/lib/python3.10/site-packages/django/db/backends/utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "/home/pragnakalpl24/.local/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/pragnakalpl24/.local/lib/python3.10/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.IntegrityError: null value in column "user_id" of relation "customer_profiles" violates not-null constraint
+DETAIL:  Failing row contains (2026-06-16 05:31:11.462714+00, 2026-06-16 05:31:11.462744+00, e8658659-4d91-43a6-afb6-e4b9af4c27d1, customer_profile_images/Screenshot_from_2026-06-08_10-20-26.png, null, [], 0, 0, null).
+
+Internal Server Error: /api/v1/customers/e7389761-dc7e-4a66-a004-91a28e8e9a61/upload-avatar/
+IP: 127.0.0.1 | Exception: null value in column "user_id" of relation "customer_profiles" violates not-null constraint
+DETAIL:  Failing row contains (2026-06-16 05:32:02.161021+00, 2026-06-16 05:32:02.161047+00, 9159d59a-fd63-4888-9ff0-aeaa8b1b7a93, customer_profile_images/Screenshot_from_2026-06-08_10-20-26_EN5n..., null, [], 0, 0, null).
+ | View: <apps.users.api.v1.views.customer_profile.CustomerProfileViewSet object at 0x78c3cb05fee0> | Method: POST | Path: /api/v1/customers/9a63662a-bff5-42eb-af42-ecab2e516da3/upload-avatar/
+Traceback (most recent call last):
+  File "/home/pragnakalpl24/.local/lib/python3.10/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.NotNullViolation: null value in column "user_id" of relation "customer_profiles" violates not-null constraint
+DETAIL:  Failing row contains (2026-06-16 05:32:02.161021+00, 2026-06-16 05:32:02.161047+00, 9159d59a-fd63-4888-9ff0-aeaa8b1b7a93, customer_profile_images/Screenshot_from_2026-06-08_10-20-26_EN5n..., null, [], 0, 0, null).
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/pragnakalpl24/.local/lib/python3.10/site-packages/rest_framework/views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/pragnakalpl24/Downloads/Django/Django_REST/Food_Delivery_System_Task/food_delivery_system_backend/apps/users/api/v1/views/customer_profile.py", line 163, in upload_avatar
+    serializer.save()
+  File "/home/pragnakalpl24/.local/lib/python3.10/site-packages/rest_framework/serializers.py", line 210, in save
+    self.instance = self.create(validated_data)
+  File "/home/pragnakalpl24/.local/lib/python3.10/site-packages/rest_framework/serializers.py", line 991, in create
+    instance = ModelClass._default_manager.create(**validated_data)
+  File "/home/pragnakalpl24/.local/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/pragnakalpl24/.local/lib/python3.10/site-packages/django/db/models/query.py", line 665, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/home/pragnakalpl24/.local/lib/python3.10/site-packages/django/db/models/base.py", line 902, in save
+    self.save_base(
+  File "/home/pragnakalpl24/.local/lib/python3.10/site-packages/django/db/models/base.py", line 1008, in save_base
+    updated = self._save_table(
+  File "/home/pragnakalpl24/.local/lib/python3.10/site-packages/django/db/models/base.py", line 1169, in _save_table
+    results = self._do_insert(
+  File "/home/pragnakalpl24/.local/lib/python3.10/site-packages/django/db/models/base.py", line 1210, in _do_insert
+    return manager._insert(
+  File "/home/pragnakalpl24/.local/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/pragnakalpl24/.local/lib/python3.10/site-packages/django/db/models/query.py", line 1873, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/home/pragnakalpl24/.local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1882, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/pragnakalpl24/.local/lib/python3.10/site-packages/django/db/backends/utils.py", line 122, in execute
+    return super().execute(sql, params)
+  File "/home/pragnakalpl24/.local/lib/python3.10/site-packages/django/db/backends/utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+  File "/home/pragnakalpl24/.local/lib/python3.10/site-packages/django/db/backends/utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/pragnakalpl24/.local/lib/python3.10/site-packages/django/db/backends/utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "/home/pragnakalpl24/.local/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/pragnakalpl24/.local/lib/python3.10/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.IntegrityError: null value in column "user_id" of relation "customer_profiles" violates not-null constraint
+DETAIL:  Failing row contains (2026-06-16 05:32:02.161021+00, 2026-06-16 05:32:02.161047+00, 9159d59a-fd63-4888-9ff0-aeaa8b1b7a93, customer_profile_images/Screenshot_from_2026-06-08_10-20-26_EN5n..., null, [], 0, 0, null).
+
+Internal Server Error: /api/v1/customers/9a63662a-bff5-42eb-af42-ecab2e516da3/upload-avatar/

@@ -12,8 +12,8 @@ class CustomerProfileSerializer(serializers.ModelSerializer):
     """
     
     full_name = serializers.SerializerMethodField()
-    user_email = serializers.EmailField(source="user.email", read_only=True)
-    phone_number = serializers.CharField(source="user.phone_number", read_only=True)
+    email = serializers.EmailField(source="user.email")
+    phone_number = serializers.CharField(source="user.phone_number")
     avatar = serializers.ImageField(required=False, allow_null=True)
     
     #Meta informations
@@ -21,7 +21,7 @@ class CustomerProfileSerializer(serializers.ModelSerializer):
         model = CustomerProfile
         fields = [
             'id',
-            'user_email',
+            'email',
             'phone_number',
             'full_name',
             'avatar', 
@@ -49,5 +49,28 @@ class CustomerProfileSerializer(serializers.ModelSerializer):
         if value:
             validate_avatar_image(value, 5)
         return value
-        
     
+    def update(self, instance, validated_data):
+        """Updates customer profile details"""
+        
+        full_name = self.initial_data.get("full_name", None)
+        user_instance = instance.user
+
+        if full_name is not None:
+            name_parts = full_name.strip().split(" ", 1)
+            user_instance.first_name = name_parts[0]
+            user_instance.last_name = name_parts[1] if len(name_parts) > 1 else ""
+            user_instance.save()
+
+        user_data = validated_data.pop("user", None)
+        print(user_data)
+        if user_data:
+            for attr, value in user_data.items():
+                setattr(user_instance, attr, value)
+            user_instance.save()
+
+        for attr, value in validated_data.items():
+            setattr(instance, attr, value)
+        instance.save()
+
+        return instance
