@@ -427,7 +427,7 @@ class RestaurantProfileViewSet(viewsets.ModelViewSet):
         """
         profile_object = self.get_object()
         data = {'logo': request.data.get('logo', None)}
-        serializer = self.get_serializer(data=data, partial=True)
+        serializer = self.get_serializer(instance=profile_object, data=data, partial=True)
         serializer.is_valid(raise_exception=True)
         serializer.save()
         
@@ -458,7 +458,7 @@ class RestaurantProfileViewSet(viewsets.ModelViewSet):
         """
         profile_object = self.get_object()
         data = {'banner': request.data.get('banner', None)}
-        serializer = self.get_serializer(data=data, partial=True)
+        serializer = self.get_serializer(instance=profile_object, data=data, partial=True)
         serializer.is_valid(raise_exception=True)
         serializer.save()
         

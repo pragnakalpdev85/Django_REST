@@ -5,3 +5,4 @@ __pycache__/
 error.log
 **/migrations/*
 !**/migrations/__init__.py
+logs/
