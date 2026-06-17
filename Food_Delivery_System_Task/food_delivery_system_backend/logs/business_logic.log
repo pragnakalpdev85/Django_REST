@@ -129,3 +129,1712 @@ django.db.utils.IntegrityError: null value in column "user_id" of relation "cust
 DETAIL:  Failing row contains (2026-06-16 05:32:02.161021+00, 2026-06-16 05:32:02.161047+00, 9159d59a-fd63-4888-9ff0-aeaa8b1b7a93, customer_profile_images/Screenshot_from_2026-06-08_10-20-26_EN5n..., null, [], 0, 0, null).
 
 Internal Server Error: /api/v1/customers/9a63662a-bff5-42eb-af42-ecab2e516da3/upload-avatar/
+IP: 127.0.0.1 | Exception: Authentication credentials were not provided. | View: <apps.restaurants.api.v1.views.restaurant.RestaurantProfileViewSet object at 0x0000027745CB1880> | Method: GET | Path: /api/v1/restaurants/f30f241a-386c-4d7a-ae87-bc1af359ed31/
+Traceback (most recent call last):
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 503, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 421, in initial
+    self.check_permissions(request)
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 339, in check_permissions
+    self.permission_denied(
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 180, in permission_denied
+    raise exceptions.NotAuthenticated()
+rest_framework.exceptions.NotAuthenticated: Authentication credentials were not provided.
+Internal Server Error: /api/v1/restaurants/f30f241a-386c-4d7a-ae87-bc1af359ed31/
+IP: 127.0.0.1 | Exception: {'detail': ErrorDetail(string='Given token not valid for any token type', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='Token is invalid', code='token_not_valid')}]} | View: <apps.restaurants.api.v1.views.restaurant.RestaurantProfileViewSet object at 0x0000027745D8F800> | Method: GET | Path: /api/v1/restaurants/f30f241a-386c-4d7a-ae87-bc1af359ed31/
+Traceback (most recent call last):
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 503, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 420, in initial
+    self.perform_authentication(request)
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 330, in perform_authentication
+    request.user
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\request.py", line 232, in user
+    self._authenticate()
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\request.py", line 385, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework_simplejwt\authentication.py", line 49, in authenticate
+    validated_token = self.get_validated_token(raw_token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework_simplejwt\authentication.py", line 113, in get_validated_token
+    raise InvalidToken(
+rest_framework_simplejwt.exceptions.InvalidToken: {'detail': ErrorDetail(string='Given token not valid for any token type', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='Token is invalid', code='token_not_valid')}]}
+Internal Server Error: /api/v1/restaurants/f30f241a-386c-4d7a-ae87-bc1af359ed31/
+IP: 127.0.0.1 | Exception: {'detail': ErrorDetail(string='Given token not valid for any token type', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='Token is invalid', code='token_not_valid')}]} | View: <apps.restaurants.api.v1.views.restaurant.RestaurantProfileViewSet object at 0x0000027745D8F320> | Method: PUT | Path: /api/v1/restaurants/2bd10a8a-e13f-473b-af05-051aeee68ab7/
+Traceback (most recent call last):
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 503, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 420, in initial
+    self.perform_authentication(request)
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 330, in perform_authentication
+    request.user
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\request.py", line 232, in user
+    self._authenticate()
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\request.py", line 385, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework_simplejwt\authentication.py", line 49, in authenticate
+    validated_token = self.get_validated_token(raw_token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework_simplejwt\authentication.py", line 113, in get_validated_token
+    raise InvalidToken(
+rest_framework_simplejwt.exceptions.InvalidToken: {'detail': ErrorDetail(string='Given token not valid for any token type', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='Token is invalid', code='token_not_valid')}]}
+Internal Server Error: /api/v1/restaurants/2bd10a8a-e13f-473b-af05-051aeee68ab7/
+IP: 127.0.0.1 | Exception: {'detail': ErrorDetail(string='Given token not valid for any token type', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='Token is invalid', code='token_not_valid')}]} | View: <apps.restaurants.api.v1.views.restaurant.RestaurantProfileViewSet object at 0x0000027745B3EED0> | Method: PUT | Path: /api/v1/restaurants/2bd10a8a-e13f-473b-af05-051aeee68ab7/
+Traceback (most recent call last):
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 503, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 420, in initial
+    self.perform_authentication(request)
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 330, in perform_authentication
+    request.user
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\request.py", line 232, in user
+    self._authenticate()
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\request.py", line 385, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework_simplejwt\authentication.py", line 49, in authenticate
+    validated_token = self.get_validated_token(raw_token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework_simplejwt\authentication.py", line 113, in get_validated_token
+    raise InvalidToken(
+rest_framework_simplejwt.exceptions.InvalidToken: {'detail': ErrorDetail(string='Given token not valid for any token type', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='Token is invalid', code='token_not_valid')}]}
+Internal Server Error: /api/v1/restaurants/2bd10a8a-e13f-473b-af05-051aeee68ab7/
+IP: 127.0.0.1 | Exception: {'detail': ErrorDetail(string='Given token not valid for any token type', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='Token is expired', code='token_not_valid')}]} | View: <apps.restaurants.api.v1.views.restaurant.RestaurantProfileViewSet object at 0x0000027745D8E690> | Method: PUT | Path: /api/v1/restaurants/
+Traceback (most recent call last):
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 503, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 420, in initial
+    self.perform_authentication(request)
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 330, in perform_authentication
+    request.user
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\request.py", line 232, in user
+    self._authenticate()
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\request.py", line 385, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework_simplejwt\authentication.py", line 49, in authenticate
+    validated_token = self.get_validated_token(raw_token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework_simplejwt\authentication.py", line 113, in get_validated_token
+    raise InvalidToken(
+rest_framework_simplejwt.exceptions.InvalidToken: {'detail': ErrorDetail(string='Given token not valid for any token type', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='Token is expired', code='token_not_valid')}]}
+Internal Server Error: /api/v1/restaurants/
+IP: 127.0.0.1 | Exception: Method "PUT" not allowed. | View: <apps.restaurants.api.v1.views.restaurant.RestaurantProfileViewSet object at 0x0000027745D8E960> | Method: PUT | Path: /api/v1/restaurants/
+Traceback (most recent call last):
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 173, in http_method_not_allowed
+    raise exceptions.MethodNotAllowed(request.method)
+rest_framework.exceptions.MethodNotAllowed: Method "PUT" not allowed.
+Internal Server Error: /api/v1/restaurants/
+IP: 127.0.0.1 | Exception: {'detail': ErrorDetail(string='Given token not valid for any token type', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='Token is expired', code='token_not_valid')}]} | View: <apps.users.api.v1.views.auth.AuthLoginView object at 0x000002372ABFFF80> | Method: POST | Path: /api/v1/auth/login/
+Traceback (most recent call last):
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 503, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 420, in initial
+    self.perform_authentication(request)
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 330, in perform_authentication
+    request.user
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\request.py", line 232, in user
+    self._authenticate()
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\request.py", line 385, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework_simplejwt\authentication.py", line 49, in authenticate
+    validated_token = self.get_validated_token(raw_token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework_simplejwt\authentication.py", line 113, in get_validated_token
+    raise InvalidToken(
+rest_framework_simplejwt.exceptions.InvalidToken: {'detail': ErrorDetail(string='Given token not valid for any token type', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='Token is expired', code='token_not_valid')}]}
+Internal Server Error: /api/v1/auth/login/
+IP: 127.0.0.1 | Exception: Method "PUT" not allowed. | View: <apps.restaurants.api.v1.views.restaurant.RestaurantProfileViewSet object at 0x00000286101C5910> | Method: PUT | Path: /api/v1/restaurants/
+Traceback (most recent call last):
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 173, in http_method_not_allowed
+    raise exceptions.MethodNotAllowed(request.method)
+rest_framework.exceptions.MethodNotAllowed: Method "PUT" not allowed.
+Internal Server Error: /api/v1/restaurants/
+IP: 127.0.0.1 | Exception: Authentication credentials were not provided. | View: <apps.restaurants.api.v1.views.restaurant.RestaurantProfileViewSet object at 0x00000286107102F0> | Method: POST | Path: /api/v1/restaurants/2bd10a8a-e13f-473b-af05-051aeee68ab7/upload-logo/
+Traceback (most recent call last):
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 503, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 421, in initial
+    self.check_permissions(request)
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 339, in check_permissions
+    self.permission_denied(
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 180, in permission_denied
+    raise exceptions.NotAuthenticated()
+rest_framework.exceptions.NotAuthenticated: Authentication credentials were not provided.
+Internal Server Error: /api/v1/restaurants/2bd10a8a-e13f-473b-af05-051aeee68ab7/upload-logo/
+IP: 127.0.0.1 | Exception: {'detail': ErrorDetail(string='Given token not valid for any token type', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='Token is expired', code='token_not_valid')}]} | View: <apps.restaurants.api.v1.views.restaurant.RestaurantProfileViewSet object at 0x00000286105B4BC0> | Method: GET | Path: /api/v1/restaurants/
+Traceback (most recent call last):
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 503, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 420, in initial
+    self.perform_authentication(request)
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 330, in perform_authentication
+    request.user
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\request.py", line 232, in user
+    self._authenticate()
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\request.py", line 385, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework_simplejwt\authentication.py", line 49, in authenticate
+    validated_token = self.get_validated_token(raw_token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework_simplejwt\authentication.py", line 113, in get_validated_token
+    raise InvalidToken(
+rest_framework_simplejwt.exceptions.InvalidToken: {'detail': ErrorDetail(string='Given token not valid for any token type', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='Token is expired', code='token_not_valid')}]}
+Internal Server Error: /api/v1/restaurants/
+IP: 127.0.0.1 | Exception: {'detail': ErrorDetail(string='Given token not valid for any token type', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='Token is expired', code='token_not_valid')}]} | View: <apps.restaurants.api.v1.views.restaurant.RestaurantProfileViewSet object at 0x0000028610691A00> | Method: GET | Path: /api/v1/restaurants/
+Traceback (most recent call last):
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 503, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 420, in initial
+    self.perform_authentication(request)
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 330, in perform_authentication
+    request.user
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\request.py", line 232, in user
+    self._authenticate()
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\request.py", line 385, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework_simplejwt\authentication.py", line 49, in authenticate
+    validated_token = self.get_validated_token(raw_token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework_simplejwt\authentication.py", line 113, in get_validated_token
+    raise InvalidToken(
+rest_framework_simplejwt.exceptions.InvalidToken: {'detail': ErrorDetail(string='Given token not valid for any token type', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='Token is expired', code='token_not_valid')}]}
+Internal Server Error: /api/v1/restaurants/
+IP: 127.0.0.1 | Exception: {'detail': ErrorDetail(string='Given token not valid for any token type', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='Token is expired', code='token_not_valid')}]} | View: <apps.restaurants.api.v1.views.restaurant.RestaurantProfileViewSet object at 0x00000286106915E0> | Method: GET | Path: /api/v1/restaurants/
+Traceback (most recent call last):
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 503, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 420, in initial
+    self.perform_authentication(request)
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 330, in perform_authentication
+    request.user
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\request.py", line 232, in user
+    self._authenticate()
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\request.py", line 385, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework_simplejwt\authentication.py", line 49, in authenticate
+    validated_token = self.get_validated_token(raw_token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework_simplejwt\authentication.py", line 113, in get_validated_token
+    raise InvalidToken(
+rest_framework_simplejwt.exceptions.InvalidToken: {'detail': ErrorDetail(string='Given token not valid for any token type', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='Token is expired', code='token_not_valid')}]}
+Internal Server Error: /api/v1/restaurants/
+IP: 127.0.0.1 | Exception: {'detail': ErrorDetail(string='Given token not valid for any token type', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='Token is expired', code='token_not_valid')}]} | View: <apps.restaurants.api.v1.views.restaurant.RestaurantProfileViewSet object at 0x0000028610692B40> | Method: GET | Path: /api/v1/restaurants/
+Traceback (most recent call last):
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 503, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 420, in initial
+    self.perform_authentication(request)
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 330, in perform_authentication
+    request.user
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\request.py", line 232, in user
+    self._authenticate()
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\request.py", line 385, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework_simplejwt\authentication.py", line 49, in authenticate
+    validated_token = self.get_validated_token(raw_token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework_simplejwt\authentication.py", line 113, in get_validated_token
+    raise InvalidToken(
+rest_framework_simplejwt.exceptions.InvalidToken: {'detail': ErrorDetail(string='Given token not valid for any token type', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='Token is expired', code='token_not_valid')}]}
+Internal Server Error: /api/v1/restaurants/
+IP: 127.0.0.1 | Exception: {'detail': ErrorDetail(string='Given token not valid for any token type', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='Token is expired', code='token_not_valid')}]} | View: <apps.restaurants.api.v1.views.restaurant.RestaurantProfileViewSet object at 0x00000286105B4B90> | Method: GET | Path: /api/v1/restaurants/
+Traceback (most recent call last):
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 503, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 420, in initial
+    self.perform_authentication(request)
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 330, in perform_authentication
+    request.user
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\request.py", line 232, in user
+    self._authenticate()
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\request.py", line 385, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework_simplejwt\authentication.py", line 49, in authenticate
+    validated_token = self.get_validated_token(raw_token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework_simplejwt\authentication.py", line 113, in get_validated_token
+    raise InvalidToken(
+rest_framework_simplejwt.exceptions.InvalidToken: {'detail': ErrorDetail(string='Given token not valid for any token type', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='Token is expired', code='token_not_valid')}]}
+Internal Server Error: /api/v1/restaurants/
+IP: 127.0.0.1 | Exception:  | View: <apps.restaurants.api.v1.views.restaurant.RestaurantProfileViewSet object at 0x00000286106B23C0> | Method: POST | Path: /api/v1/restaurants/{id}/upload-logo/
+Traceback (most recent call last):
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\django\db\models\fields\__init__.py", line 2766, in to_python
+    return uuid.UUID(**{input_form: value})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python312\Lib\uuid.py", line 178, in __init__
+    raise ValueError('badly formed hexadecimal UUID string')
+ValueError: badly formed hexadecimal UUID string
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\generics.py", line 19, in get_object_or_404
+    return _get_object_or_404(queryset, *filter_args, **filter_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\django\shortcuts.py", line 90, in get_object_or_404
+    return queryset.get(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\django\db\models\query.py", line 621, in get
+    clone = self._chain() if self.query.combinator else self.filter(*args, **kwargs)
+                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\django\db\models\query.py", line 1495, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\django\db\models\query.py", line 1513, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\django\db\models\query.py", line 1523, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\django\db\models\sql\query.py", line 1648, in add_q
+    clause, _ = self._add_q(q_object, can_reuse)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\django\db\models\sql\query.py", line 1680, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\django\db\models\sql\query.py", line 1590, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\django\db\models\sql\query.py", line 1417, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\django\db\models\lookups.py", line 38, in __init__
+    self.rhs = self.get_prep_lookup()
+               ^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\django\db\models\lookups.py", line 410, in get_prep_lookup
+    return super().get_prep_lookup()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\django\db\models\lookups.py", line 96, in get_prep_lookup
+    return self.lhs.output_field.get_prep_value(self.rhs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\django\db\models\fields\__init__.py", line 2750, in get_prep_value
+    return self.to_python(value)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\django\db\models\fields\__init__.py", line 2768, in to_python
+    raise exceptions.ValidationError(
+django.core.exceptions.ValidationError: ['“{id}” is not a valid UUID.']
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\apps\restaurants\api\v1\views\restaurant.py", line 428, in upload_logo
+    profile_object = self.get_object()
+                     ^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\apps\restaurants\api\v1\views\restaurant.py", line 97, in get_object
+    obj = super().get_object()
+          ^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\generics.py", line 100, in get_object
+    obj = get_object_or_404(queryset, **filter_kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\generics.py", line 21, in get_object_or_404
+    raise Http404
+django.http.response.Http404
+Internal Server Error: /api/v1/restaurants/{id}/upload-logo/
+IP: 127.0.0.1 | Exception: {'detail': ErrorDetail(string='Given token not valid for any token type', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='Token is expired', code='token_not_valid')}]} | View: <apps.restaurants.api.v1.views.restaurant.RestaurantProfileViewSet object at 0x00000286106B2EA0> | Method: GET | Path: /api/v1/restaurants/
+Traceback (most recent call last):
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 503, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 420, in initial
+    self.perform_authentication(request)
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 330, in perform_authentication
+    request.user
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\request.py", line 232, in user
+    self._authenticate()
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\request.py", line 385, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework_simplejwt\authentication.py", line 49, in authenticate
+    validated_token = self.get_validated_token(raw_token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework_simplejwt\authentication.py", line 113, in get_validated_token
+    raise InvalidToken(
+rest_framework_simplejwt.exceptions.InvalidToken: {'detail': ErrorDetail(string='Given token not valid for any token type', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='Token is expired', code='token_not_valid')}]}
+Internal Server Error: /api/v1/restaurants/
+IP: 127.0.0.1 | Exception: {'detail': ErrorDetail(string='Given token not valid for any token type', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='Token is expired', code='token_not_valid')}]} | View: <apps.restaurants.api.v1.views.restaurant.RestaurantProfileViewSet object at 0x0000028610691A90> | Method: GET | Path: /api/v1/restaurants/
+Traceback (most recent call last):
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 503, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 420, in initial
+    self.perform_authentication(request)
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 330, in perform_authentication
+    request.user
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\request.py", line 232, in user
+    self._authenticate()
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\request.py", line 385, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework_simplejwt\authentication.py", line 49, in authenticate
+    validated_token = self.get_validated_token(raw_token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework_simplejwt\authentication.py", line 113, in get_validated_token
+    raise InvalidToken(
+rest_framework_simplejwt.exceptions.InvalidToken: {'detail': ErrorDetail(string='Given token not valid for any token type', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='Token is expired', code='token_not_valid')}]}
+Internal Server Error: /api/v1/restaurants/
+IP: 127.0.0.1 | Exception: {'detail': ErrorDetail(string='Given token not valid for any token type', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='Token is expired', code='token_not_valid')}]} | View: <apps.restaurants.api.v1.views.restaurant.RestaurantProfileViewSet object at 0x00000286105E8D10> | Method: GET | Path: /api/v1/restaurants/
+Traceback (most recent call last):
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 503, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 420, in initial
+    self.perform_authentication(request)
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 330, in perform_authentication
+    request.user
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\request.py", line 232, in user
+    self._authenticate()
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\request.py", line 385, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework_simplejwt\authentication.py", line 49, in authenticate
+    validated_token = self.get_validated_token(raw_token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework_simplejwt\authentication.py", line 113, in get_validated_token
+    raise InvalidToken(
+rest_framework_simplejwt.exceptions.InvalidToken: {'detail': ErrorDetail(string='Given token not valid for any token type', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='Token is expired', code='token_not_valid')}]}
+Internal Server Error: /api/v1/restaurants/
+IP: 127.0.0.1 | Exception: {'detail': ErrorDetail(string='Given token not valid for any token type', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='Token is expired', code='token_not_valid')}]} | View: <apps.restaurants.api.v1.views.restaurant.RestaurantProfileViewSet object at 0x00000286105E9640> | Method: GET | Path: /api/v1/restaurants/
+Traceback (most recent call last):
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 503, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 420, in initial
+    self.perform_authentication(request)
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 330, in perform_authentication
+    request.user
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\request.py", line 232, in user
+    self._authenticate()
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\request.py", line 385, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework_simplejwt\authentication.py", line 49, in authenticate
+    validated_token = self.get_validated_token(raw_token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework_simplejwt\authentication.py", line 113, in get_validated_token
+    raise InvalidToken(
+rest_framework_simplejwt.exceptions.InvalidToken: {'detail': ErrorDetail(string='Given token not valid for any token type', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='Token is expired', code='token_not_valid')}]}
+Internal Server Error: /api/v1/restaurants/
+IP: 127.0.0.1 | Exception: {'detail': ErrorDetail(string='Given token not valid for any token type', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='Token is expired', code='token_not_valid')}]} | View: <apps.restaurants.api.v1.views.restaurant.RestaurantProfileViewSet object at 0x000002861037D8E0> | Method: GET | Path: /api/v1/restaurants/
+Traceback (most recent call last):
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 503, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 420, in initial
+    self.perform_authentication(request)
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 330, in perform_authentication
+    request.user
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\request.py", line 232, in user
+    self._authenticate()
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\request.py", line 385, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework_simplejwt\authentication.py", line 49, in authenticate
+    validated_token = self.get_validated_token(raw_token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework_simplejwt\authentication.py", line 113, in get_validated_token
+    raise InvalidToken(
+rest_framework_simplejwt.exceptions.InvalidToken: {'detail': ErrorDetail(string='Given token not valid for any token type', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='Token is expired', code='token_not_valid')}]}
+Internal Server Error: /api/v1/restaurants/
+IP: 127.0.0.1 | Exception: {'detail': ErrorDetail(string='Given token not valid for any token type', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='Token is expired', code='token_not_valid')}]} | View: <apps.restaurants.api.v1.views.restaurant.RestaurantProfileViewSet object at 0x00000286106B29C0> | Method: GET | Path: /api/v1/restaurants/
+Traceback (most recent call last):
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 503, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 420, in initial
+    self.perform_authentication(request)
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 330, in perform_authentication
+    request.user
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\request.py", line 232, in user
+    self._authenticate()
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\request.py", line 385, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework_simplejwt\authentication.py", line 49, in authenticate
+    validated_token = self.get_validated_token(raw_token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework_simplejwt\authentication.py", line 113, in get_validated_token
+    raise InvalidToken(
+rest_framework_simplejwt.exceptions.InvalidToken: {'detail': ErrorDetail(string='Given token not valid for any token type', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='Token is expired', code='token_not_valid')}]}
+Internal Server Error: /api/v1/restaurants/
+IP: 127.0.0.1 | Exception: {'detail': ErrorDetail(string='Given token not valid for any token type', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='Token is expired', code='token_not_valid')}]} | View: <apps.restaurants.api.v1.views.restaurant.RestaurantProfileViewSet object at 0x00000286105EAD20> | Method: GET | Path: /api/v1/restaurants/
+Traceback (most recent call last):
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 503, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 420, in initial
+    self.perform_authentication(request)
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 330, in perform_authentication
+    request.user
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\request.py", line 232, in user
+    self._authenticate()
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\request.py", line 385, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework_simplejwt\authentication.py", line 49, in authenticate
+    validated_token = self.get_validated_token(raw_token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework_simplejwt\authentication.py", line 113, in get_validated_token
+    raise InvalidToken(
+rest_framework_simplejwt.exceptions.InvalidToken: {'detail': ErrorDetail(string='Given token not valid for any token type', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='Token is expired', code='token_not_valid')}]}
+Internal Server Error: /api/v1/restaurants/
+IP: 127.0.0.1 | Exception: {'detail': ErrorDetail(string='Given token not valid for any token type', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='Token is expired', code='token_not_valid')}]} | View: <apps.restaurants.api.v1.views.restaurant.RestaurantProfileViewSet object at 0x00000286105EB2C0> | Method: GET | Path: /api/v1/restaurants/
+Traceback (most recent call last):
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 503, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 420, in initial
+    self.perform_authentication(request)
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 330, in perform_authentication
+    request.user
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\request.py", line 232, in user
+    self._authenticate()
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\request.py", line 385, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework_simplejwt\authentication.py", line 49, in authenticate
+    validated_token = self.get_validated_token(raw_token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework_simplejwt\authentication.py", line 113, in get_validated_token
+    raise InvalidToken(
+rest_framework_simplejwt.exceptions.InvalidToken: {'detail': ErrorDetail(string='Given token not valid for any token type', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='Token is expired', code='token_not_valid')}]}
+Internal Server Error: /api/v1/restaurants/
+IP: 127.0.0.1 | Exception: {'detail': ErrorDetail(string='Given token not valid for any token type', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='Token is expired', code='token_not_valid')}]} | View: <apps.restaurants.api.v1.views.restaurant.RestaurantProfileViewSet object at 0x0000028610690680> | Method: GET | Path: /api/v1/restaurants/
+Traceback (most recent call last):
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 503, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 420, in initial
+    self.perform_authentication(request)
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 330, in perform_authentication
+    request.user
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\request.py", line 232, in user
+    self._authenticate()
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\request.py", line 385, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework_simplejwt\authentication.py", line 49, in authenticate
+    validated_token = self.get_validated_token(raw_token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework_simplejwt\authentication.py", line 113, in get_validated_token
+    raise InvalidToken(
+rest_framework_simplejwt.exceptions.InvalidToken: {'detail': ErrorDetail(string='Given token not valid for any token type', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='Token is expired', code='token_not_valid')}]}
+Internal Server Error: /api/v1/restaurants/
+IP: 127.0.0.1 | Exception: {'detail': ErrorDetail(string='Given token not valid for any token type', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='Token is expired', code='token_not_valid')}]} | View: <apps.restaurants.api.v1.views.restaurant.RestaurantProfileViewSet object at 0x0000028610691D30> | Method: GET | Path: /api/v1/restaurants/
+Traceback (most recent call last):
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 503, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 420, in initial
+    self.perform_authentication(request)
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 330, in perform_authentication
+    request.user
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\request.py", line 232, in user
+    self._authenticate()
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\request.py", line 385, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework_simplejwt\authentication.py", line 49, in authenticate
+    validated_token = self.get_validated_token(raw_token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework_simplejwt\authentication.py", line 113, in get_validated_token
+    raise InvalidToken(
+rest_framework_simplejwt.exceptions.InvalidToken: {'detail': ErrorDetail(string='Given token not valid for any token type', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='Token is expired', code='token_not_valid')}]}
+Internal Server Error: /api/v1/restaurants/
+IP: 127.0.0.1 | Exception: {'detail': ErrorDetail(string='Given token not valid for any token type', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='Token is expired', code='token_not_valid')}]} | View: <apps.restaurants.api.v1.views.restaurant.RestaurantProfileViewSet object at 0x00000286106B3BF0> | Method: POST | Path: /api/v1/restaurants/{id}/upload-logo/
+Traceback (most recent call last):
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 503, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 420, in initial
+    self.perform_authentication(request)
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 330, in perform_authentication
+    request.user
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\request.py", line 232, in user
+    self._authenticate()
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\request.py", line 385, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework_simplejwt\authentication.py", line 49, in authenticate
+    validated_token = self.get_validated_token(raw_token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework_simplejwt\authentication.py", line 113, in get_validated_token
+    raise InvalidToken(
+rest_framework_simplejwt.exceptions.InvalidToken: {'detail': ErrorDetail(string='Given token not valid for any token type', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='Token is expired', code='token_not_valid')}]}
+Internal Server Error: /api/v1/restaurants/{id}/upload-logo/
+IP: 127.0.0.1 | Exception: {'detail': ErrorDetail(string='Given token not valid for any token type', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='Token is expired', code='token_not_valid')}]} | View: <apps.restaurants.api.v1.views.restaurant.RestaurantProfileViewSet object at 0x000002861057BD70> | Method: GET | Path: /api/v1/restaurants/
+Traceback (most recent call last):
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 503, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 420, in initial
+    self.perform_authentication(request)
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 330, in perform_authentication
+    request.user
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\request.py", line 232, in user
+    self._authenticate()
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\request.py", line 385, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework_simplejwt\authentication.py", line 49, in authenticate
+    validated_token = self.get_validated_token(raw_token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework_simplejwt\authentication.py", line 113, in get_validated_token
+    raise InvalidToken(
+rest_framework_simplejwt.exceptions.InvalidToken: {'detail': ErrorDetail(string='Given token not valid for any token type', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='Token is expired', code='token_not_valid')}]}
+Internal Server Error: /api/v1/restaurants/
+IP: 127.0.0.1 | Exception: {'detail': ErrorDetail(string='Given token not valid for any token type', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='Token is expired', code='token_not_valid')}]} | View: <apps.restaurants.api.v1.views.restaurant.RestaurantProfileViewSet object at 0x000002861035BA40> | Method: GET | Path: /api/v1/restaurants/
+Traceback (most recent call last):
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 503, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 420, in initial
+    self.perform_authentication(request)
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 330, in perform_authentication
+    request.user
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\request.py", line 232, in user
+    self._authenticate()
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\request.py", line 385, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework_simplejwt\authentication.py", line 49, in authenticate
+    validated_token = self.get_validated_token(raw_token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework_simplejwt\authentication.py", line 113, in get_validated_token
+    raise InvalidToken(
+rest_framework_simplejwt.exceptions.InvalidToken: {'detail': ErrorDetail(string='Given token not valid for any token type', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='Token is expired', code='token_not_valid')}]}
+Internal Server Error: /api/v1/restaurants/
+IP: 127.0.0.1 | Exception: {'detail': ErrorDetail(string='Given token not valid for any token type', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='Token is expired', code='token_not_valid')}]} | View: <apps.restaurants.api.v1.views.restaurant.RestaurantProfileViewSet object at 0x0000028610359BB0> | Method: GET | Path: /api/v1/restaurants/
+Traceback (most recent call last):
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 503, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 420, in initial
+    self.perform_authentication(request)
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 330, in perform_authentication
+    request.user
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\request.py", line 232, in user
+    self._authenticate()
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\request.py", line 385, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework_simplejwt\authentication.py", line 49, in authenticate
+    validated_token = self.get_validated_token(raw_token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework_simplejwt\authentication.py", line 113, in get_validated_token
+    raise InvalidToken(
+rest_framework_simplejwt.exceptions.InvalidToken: {'detail': ErrorDetail(string='Given token not valid for any token type', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='Token is expired', code='token_not_valid')}]}
+Internal Server Error: /api/v1/restaurants/
+IP: 127.0.0.1 | Exception: {'detail': ErrorDetail(string='Given token not valid for any token type', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='Token is expired', code='token_not_valid')}]} | View: <apps.restaurants.api.v1.views.restaurant.RestaurantProfileViewSet object at 0x000002861057AC60> | Method: GET | Path: /api/v1/restaurants/
+Traceback (most recent call last):
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 503, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 420, in initial
+    self.perform_authentication(request)
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 330, in perform_authentication
+    request.user
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\request.py", line 232, in user
+    self._authenticate()
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\request.py", line 385, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework_simplejwt\authentication.py", line 49, in authenticate
+    validated_token = self.get_validated_token(raw_token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework_simplejwt\authentication.py", line 113, in get_validated_token
+    raise InvalidToken(
+rest_framework_simplejwt.exceptions.InvalidToken: {'detail': ErrorDetail(string='Given token not valid for any token type', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='Token is expired', code='token_not_valid')}]}
+Internal Server Error: /api/v1/restaurants/
+IP: 127.0.0.1 | Exception: {'detail': ErrorDetail(string='Given token not valid for any token type', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='Token is expired', code='token_not_valid')}]} | View: <apps.restaurants.api.v1.views.restaurant.RestaurantProfileViewSet object at 0x00000286105EB110> | Method: GET | Path: /api/v1/restaurants/
+Traceback (most recent call last):
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 503, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 420, in initial
+    self.perform_authentication(request)
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 330, in perform_authentication
+    request.user
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\request.py", line 232, in user
+    self._authenticate()
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\request.py", line 385, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework_simplejwt\authentication.py", line 49, in authenticate
+    validated_token = self.get_validated_token(raw_token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework_simplejwt\authentication.py", line 113, in get_validated_token
+    raise InvalidToken(
+rest_framework_simplejwt.exceptions.InvalidToken: {'detail': ErrorDetail(string='Given token not valid for any token type', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='Token is expired', code='token_not_valid')}]}
+Internal Server Error: /api/v1/restaurants/
+IP: 127.0.0.1 | Exception: {'detail': ErrorDetail(string='Given token not valid for any token type', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='Token is expired', code='token_not_valid')}]} | View: <apps.restaurants.api.v1.views.restaurant.RestaurantProfileViewSet object at 0x0000028610690920> | Method: POST | Path: /api/v1/restaurants/2bd10a8a-e13f-473b-af05-051aeee68ab7/upload-logo/
+Traceback (most recent call last):
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 503, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 420, in initial
+    self.perform_authentication(request)
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 330, in perform_authentication
+    request.user
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\request.py", line 232, in user
+    self._authenticate()
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\request.py", line 385, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework_simplejwt\authentication.py", line 49, in authenticate
+    validated_token = self.get_validated_token(raw_token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework_simplejwt\authentication.py", line 113, in get_validated_token
+    raise InvalidToken(
+rest_framework_simplejwt.exceptions.InvalidToken: {'detail': ErrorDetail(string='Given token not valid for any token type', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='Token is expired', code='token_not_valid')}]}
+Internal Server Error: /api/v1/restaurants/2bd10a8a-e13f-473b-af05-051aeee68ab7/upload-logo/
+IP: 127.0.0.1 | Exception: 'RestaurantProfile' object has no attribute 'user' | View: <apps.restaurants.api.v1.views.restaurant.RestaurantProfileViewSet object at 0x000001F5EE5E0980> | Method: POST | Path: /api/v1/restaurants/2bd10a8a-e13f-473b-af05-051aeee68ab7/upload-logo/
+Traceback (most recent call last):
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\apps\restaurants\api\v1\views\restaurant.py", line 428, in upload_logo
+    profile_object = self.get_object()
+                     ^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\apps\restaurants\api\v1\views\restaurant.py", line 97, in get_object
+    obj = super().get_object()
+          ^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\generics.py", line 103, in get_object
+    self.check_object_permissions(self.request, obj)
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 351, in check_object_permissions
+    if not permission.has_object_permission(request, self, obj):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\apps\common\utils\permissions.py", line 59, in has_object_permission
+    return obj.user == request.user
+           ^^^^^^^^
+AttributeError: 'RestaurantProfile' object has no attribute 'user'
+Internal Server Error: /api/v1/restaurants/2bd10a8a-e13f-473b-af05-051aeee68ab7/upload-logo/
+IP: 127.0.0.1 | Exception: {'detail': ErrorDetail(string='Given token not valid for any token type', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='Token is expired', code='token_not_valid')}]} | View: <apps.users.api.v1.views.auth.AuthLoginView object at 0x000001F5EE38B380> | Method: POST | Path: /api/v1/auth/login/
+Traceback (most recent call last):
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 503, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 420, in initial
+    self.perform_authentication(request)
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 330, in perform_authentication
+    request.user
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\request.py", line 232, in user
+    self._authenticate()
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\request.py", line 385, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework_simplejwt\authentication.py", line 49, in authenticate
+    validated_token = self.get_validated_token(raw_token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework_simplejwt\authentication.py", line 113, in get_validated_token
+    raise InvalidToken(
+rest_framework_simplejwt.exceptions.InvalidToken: {'detail': ErrorDetail(string='Given token not valid for any token type', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='Token is expired', code='token_not_valid')}]}
+Internal Server Error: /api/v1/auth/login/
+IP: 127.0.0.1 | Exception: 'RestaurantProfile' object has no attribute 'user' | View: <apps.restaurants.api.v1.views.restaurant.RestaurantProfileViewSet object at 0x000001F5EE57F0E0> | Method: POST | Path: /api/v1/restaurants/2bd10a8a-e13f-473b-af05-051aeee68ab7/upload-logo/
+Traceback (most recent call last):
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\apps\restaurants\api\v1\views\restaurant.py", line 428, in upload_logo
+    profile_object = self.get_object()
+                     ^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\apps\restaurants\api\v1\views\restaurant.py", line 97, in get_object
+    obj = super().get_object()
+          ^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\generics.py", line 103, in get_object
+    self.check_object_permissions(self.request, obj)
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 351, in check_object_permissions
+    if not permission.has_object_permission(request, self, obj):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\apps\common\utils\permissions.py", line 59, in has_object_permission
+    return obj.user == request.user
+           ^^^^^^^^
+AttributeError: 'RestaurantProfile' object has no attribute 'user'
+Internal Server Error: /api/v1/restaurants/2bd10a8a-e13f-473b-af05-051aeee68ab7/upload-logo/
+IP: 127.0.0.1 | Exception: 'RestaurantProfile' object has no attribute 'user' | View: <apps.restaurants.api.v1.views.restaurant.RestaurantProfileViewSet object at 0x000001F5EE3608F0> | Method: POST | Path: /api/v1/restaurants/2bd10a8a-e13f-473b-af05-051aeee68ab7/upload-logo/
+Traceback (most recent call last):
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\apps\restaurants\api\v1\views\restaurant.py", line 428, in upload_logo
+    profile_object = self.get_object()
+                     ^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\apps\restaurants\api\v1\views\restaurant.py", line 97, in get_object
+    obj = super().get_object()
+          ^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\generics.py", line 103, in get_object
+    self.check_object_permissions(self.request, obj)
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 351, in check_object_permissions
+    if not permission.has_object_permission(request, self, obj):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\apps\common\utils\permissions.py", line 59, in has_object_permission
+    return obj.user == request.user
+           ^^^^^^^^
+AttributeError: 'RestaurantProfile' object has no attribute 'user'
+Internal Server Error: /api/v1/restaurants/2bd10a8a-e13f-473b-af05-051aeee68ab7/upload-logo/
+IP: 127.0.0.1 | Exception: 'RestaurantProfile' object has no attribute 'user' | View: <apps.restaurants.api.v1.views.restaurant.RestaurantProfileViewSet object at 0x000001F5EE254110> | Method: POST | Path: /api/v1/restaurants/2bd10a8a-e13f-473b-af05-051aeee68ab7/upload-logo/
+Traceback (most recent call last):
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\apps\restaurants\api\v1\views\restaurant.py", line 428, in upload_logo
+    profile_object = self.get_object()
+                     ^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\apps\restaurants\api\v1\views\restaurant.py", line 97, in get_object
+    obj = super().get_object()
+          ^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\generics.py", line 103, in get_object
+    self.check_object_permissions(self.request, obj)
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 351, in check_object_permissions
+    if not permission.has_object_permission(request, self, obj):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\apps\common\utils\permissions.py", line 59, in has_object_permission
+    return obj.user == request.user
+           ^^^^^^^^
+AttributeError: 'RestaurantProfile' object has no attribute 'user'
+Internal Server Error: /api/v1/restaurants/2bd10a8a-e13f-473b-af05-051aeee68ab7/upload-logo/
+IP: 127.0.0.1 | Exception: 'RestaurantProfile' object has no attribute 'user' | View: <apps.restaurants.api.v1.views.restaurant.RestaurantProfileViewSet object at 0x000001F5EE613A70> | Method: POST | Path: /api/v1/restaurants/2bd10a8a-e13f-473b-af05-051aeee68ab7/upload-logo/
+Traceback (most recent call last):
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\apps\restaurants\api\v1\views\restaurant.py", line 428, in upload_logo
+    profile_object = self.get_object()
+                     ^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\apps\restaurants\api\v1\views\restaurant.py", line 97, in get_object
+    obj = super().get_object()
+          ^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\generics.py", line 103, in get_object
+    self.check_object_permissions(self.request, obj)
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 351, in check_object_permissions
+    if not permission.has_object_permission(request, self, obj):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\apps\common\utils\permissions.py", line 59, in has_object_permission
+    return obj.user == request.user
+           ^^^^^^^^
+AttributeError: 'RestaurantProfile' object has no attribute 'user'
+Internal Server Error: /api/v1/restaurants/2bd10a8a-e13f-473b-af05-051aeee68ab7/upload-logo/
+IP: 127.0.0.1 | Exception: You do not have permission to perform this action. | View: <apps.restaurants.api.v1.views.restaurant.RestaurantProfileViewSet object at 0x0000022822AB04D0> | Method: POST | Path: /api/v1/restaurants/2bd10a8a-e13f-473b-af05-051aeee68ab7/upload-logo/
+Traceback (most recent call last):
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 503, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 421, in initial
+    self.check_permissions(request)
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 339, in check_permissions
+    self.permission_denied(
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 181, in permission_denied
+    raise exceptions.PermissionDenied(detail=message, code=code)
+rest_framework.exceptions.PermissionDenied: You do not have permission to perform this action.
+Internal Server Error: /api/v1/restaurants/2bd10a8a-e13f-473b-af05-051aeee68ab7/upload-logo/
+IP: 127.0.0.1 | Exception: null value in column "user_id" of relation "customer_profiles" violates not-null constraint
+DETAIL:  Failing row contains (2026-06-17 05:07:22.455448+00, 2026-06-17 05:07:22.455448+00, d069804f-7b99-482c-a768-185c0a950115, customer_profile_images/pizza.png, null, [], 0, 0, null).
+ | View: <apps.users.api.v1.views.customer_profile.CustomerProfileViewSet object at 0x0000022822B36F90> | Method: POST | Path: /api/v1/customers/ab1e3cb3-7fe9-452c-90f6-1b8d38d02444/upload-avatar/
+Traceback (most recent call last):
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.errors.NotNullViolation: null value in column "user_id" of relation "customer_profiles" violates not-null constraint
+DETAIL:  Failing row contains (2026-06-17 05:07:22.455448+00, 2026-06-17 05:07:22.455448+00, d069804f-7b99-482c-a768-185c0a950115, customer_profile_images/pizza.png, null, [], 0, 0, null).
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\apps\users\api\v1\views\customer_profile.py", line 163, in upload_avatar
+    serializer.save()
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\serializers.py", line 210, in save
+    self.instance = self.create(validated_data)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\serializers.py", line 991, in create
+    instance = ModelClass._default_manager.create(**validated_data)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\django\db\models\query.py", line 665, in create
+    obj.save(force_insert=True, using=self.db)
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\django\db\models\base.py", line 902, in save
+    self.save_base(
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\django\db\models\base.py", line 1008, in save_base
+    updated = self._save_table(
+              ^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\django\db\models\base.py", line 1169, in _save_table
+    results = self._do_insert(
+              ^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\django\db\models\base.py", line 1210, in _do_insert
+    return manager._insert(
+           ^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\django\db\models\query.py", line 1873, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\django\db\models\sql\compiler.py", line 1882, in execute_sql
+    cursor.execute(sql, params)
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.IntegrityError: null value in column "user_id" of relation "customer_profiles" violates not-null constraint
+DETAIL:  Failing row contains (2026-06-17 05:07:22.455448+00, 2026-06-17 05:07:22.455448+00, d069804f-7b99-482c-a768-185c0a950115, customer_profile_images/pizza.png, null, [], 0, 0, null).
+
+Internal Server Error: /api/v1/customers/ab1e3cb3-7fe9-452c-90f6-1b8d38d02444/upload-avatar/
+IP: 127.0.0.1 | Exception: {'detail': ErrorDetail(string='Given token not valid for any token type', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='Token is expired', code='token_not_valid')}]} | View: <apps.users.api.v1.views.customer_profile.CustomerProfileViewSet object at 0x0000022822DF7710> | Method: GET | Path: /api/v1/customers/ab1e3cb3-7fe9-452c-90f6-1b8d38d02444/
+Traceback (most recent call last):
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 503, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 420, in initial
+    self.perform_authentication(request)
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 330, in perform_authentication
+    request.user
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\request.py", line 232, in user
+    self._authenticate()
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\request.py", line 385, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework_simplejwt\authentication.py", line 49, in authenticate
+    validated_token = self.get_validated_token(raw_token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework_simplejwt\authentication.py", line 113, in get_validated_token
+    raise InvalidToken(
+rest_framework_simplejwt.exceptions.InvalidToken: {'detail': ErrorDetail(string='Given token not valid for any token type', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='Token is expired', code='token_not_valid')}]}
+Internal Server Error: /api/v1/customers/ab1e3cb3-7fe9-452c-90f6-1b8d38d02444/
+IP: 127.0.0.1 | Exception: "Got KeyError when attempting to get a value for field `email` on serializer `CustomerProfileSerializer`.\nThe serializer field might be named incorrectly and not match any attribute or key on the `dict` instance.\nOriginal exception text was: 'user'." | View: <apps.users.api.v1.views.customer_profile.CustomerProfileViewSet object at 0x00000278995FEDE0> | Method: POST | Path: /api/v1/customers/ab1e3cb3-7fe9-452c-90f6-1b8d38d02444/upload-avatar/
+Traceback (most recent call last):
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\fields.py", line 437, in get_attribute
+    return get_attribute(instance, self.source_attrs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\fields.py", line 102, in get_attribute
+    instance = instance[attr]
+               ~~~~~~~~^^^^^^
+KeyError: 'user'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\apps\users\api\v1\views\customer_profile.py", line 163, in upload_avatar
+    print(serializer.data)
+          ^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\serializers.py", line 573, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\serializers.py", line 253, in data
+    self._data = self.to_representation(self.validated_data)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\serializers.py", line 527, in to_representation
+    attribute = field.get_attribute(instance)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\fields.py", line 470, in get_attribute
+    raise type(exc)(msg)
+KeyError: "Got KeyError when attempting to get a value for field `email` on serializer `CustomerProfileSerializer`.\nThe serializer field might be named incorrectly and not match any attribute or key on the `dict` instance.\nOriginal exception text was: 'user'."
+Internal Server Error: /api/v1/customers/ab1e3cb3-7fe9-452c-90f6-1b8d38d02444/upload-avatar/
+IP: 127.0.0.1 | Exception: "Got KeyError when attempting to get a value for field `email` on serializer `CustomerProfileSerializer`.\nThe serializer field might be named incorrectly and not match any attribute or key on the `dict` instance.\nOriginal exception text was: 'user'." | View: <apps.users.api.v1.views.customer_profile.CustomerProfileViewSet object at 0x0000029E7A0A8620> | Method: POST | Path: /api/v1/customers/ab1e3cb3-7fe9-452c-90f6-1b8d38d02444/upload-avatar/
+Traceback (most recent call last):
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\fields.py", line 437, in get_attribute
+    return get_attribute(instance, self.source_attrs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\fields.py", line 102, in get_attribute
+    instance = instance[attr]
+               ~~~~~~~~^^^^^^
+KeyError: 'user'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\apps\users\api\v1\views\customer_profile.py", line 163, in upload_avatar
+    print(serializer.data)
+          ^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\serializers.py", line 573, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\serializers.py", line 253, in data
+    self._data = self.to_representation(self.validated_data)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\serializers.py", line 527, in to_representation
+    attribute = field.get_attribute(instance)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\fields.py", line 470, in get_attribute
+    raise type(exc)(msg)
+KeyError: "Got KeyError when attempting to get a value for field `email` on serializer `CustomerProfileSerializer`.\nThe serializer field might be named incorrectly and not match any attribute or key on the `dict` instance.\nOriginal exception text was: 'user'."
+Internal Server Error: /api/v1/customers/ab1e3cb3-7fe9-452c-90f6-1b8d38d02444/upload-avatar/
+IP: 127.0.0.1 | Exception: "Got KeyError when attempting to get a value for field `email` on serializer `CustomerProfileSerializer`.\nThe serializer field might be named incorrectly and not match any attribute or key on the `dict` instance.\nOriginal exception text was: 'user'." | View: <apps.users.api.v1.views.customer_profile.CustomerProfileViewSet object at 0x0000021434C3B7D0> | Method: POST | Path: /api/v1/customers/ab1e3cb3-7fe9-452c-90f6-1b8d38d02444/upload-avatar/
+Traceback (most recent call last):
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\fields.py", line 437, in get_attribute
+    return get_attribute(instance, self.source_attrs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\fields.py", line 102, in get_attribute
+    instance = instance[attr]
+               ~~~~~~~~^^^^^^
+KeyError: 'user'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\apps\users\api\v1\views\customer_profile.py", line 163, in upload_avatar
+    print(serializer.data)
+          ^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\serializers.py", line 573, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\serializers.py", line 253, in data
+    self._data = self.to_representation(self.validated_data)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\serializers.py", line 527, in to_representation
+    attribute = field.get_attribute(instance)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\fields.py", line 470, in get_attribute
+    raise type(exc)(msg)
+KeyError: "Got KeyError when attempting to get a value for field `email` on serializer `CustomerProfileSerializer`.\nThe serializer field might be named incorrectly and not match any attribute or key on the `dict` instance.\nOriginal exception text was: 'user'."
+Internal Server Error: /api/v1/customers/ab1e3cb3-7fe9-452c-90f6-1b8d38d02444/upload-avatar/
+IP: 127.0.0.1 | Exception: {'detail': ErrorDetail(string='Given token not valid for any token type', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='Token is expired', code='token_not_valid')}]} | View: <apps.users.api.v1.views.customer_profile.CustomerProfileViewSet object at 0x00000171B69FBF50> | Method: POST | Path: /api/v1/customers/ab1e3cb3-7fe9-452c-90f6-1b8d38d02444/upload-avatar/
+Traceback (most recent call last):
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 503, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 420, in initial
+    self.perform_authentication(request)
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 330, in perform_authentication
+    request.user
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\request.py", line 232, in user
+    self._authenticate()
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\request.py", line 385, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework_simplejwt\authentication.py", line 49, in authenticate
+    validated_token = self.get_validated_token(raw_token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework_simplejwt\authentication.py", line 113, in get_validated_token
+    raise InvalidToken(
+rest_framework_simplejwt.exceptions.InvalidToken: {'detail': ErrorDetail(string='Given token not valid for any token type', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='Token is expired', code='token_not_valid')}]}
+Internal Server Error: /api/v1/customers/ab1e3cb3-7fe9-452c-90f6-1b8d38d02444/upload-avatar/
+IP: 127.0.0.1 | Exception: "Got KeyError when attempting to get a value for field `email` on serializer `CustomerProfileSerializer`.\nThe serializer field might be named incorrectly and not match any attribute or key on the `dict` instance.\nOriginal exception text was: 'users'." | View: <apps.users.api.v1.views.customer_profile.CustomerProfileViewSet object at 0x00000171B65DF620> | Method: POST | Path: /api/v1/customers/ab1e3cb3-7fe9-452c-90f6-1b8d38d02444/upload-avatar/
+Traceback (most recent call last):
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\fields.py", line 437, in get_attribute
+    return get_attribute(instance, self.source_attrs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\fields.py", line 102, in get_attribute
+    instance = instance[attr]
+               ~~~~~~~~^^^^^^
+KeyError: 'users'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\apps\users\api\v1\views\customer_profile.py", line 163, in upload_avatar
+    print(serializer.data)
+          ^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\serializers.py", line 573, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\serializers.py", line 253, in data
+    self._data = self.to_representation(self.validated_data)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\serializers.py", line 527, in to_representation
+    attribute = field.get_attribute(instance)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\fields.py", line 470, in get_attribute
+    raise type(exc)(msg)
+KeyError: "Got KeyError when attempting to get a value for field `email` on serializer `CustomerProfileSerializer`.\nThe serializer field might be named incorrectly and not match any attribute or key on the `dict` instance.\nOriginal exception text was: 'users'."
+Internal Server Error: /api/v1/customers/ab1e3cb3-7fe9-452c-90f6-1b8d38d02444/upload-avatar/
+IP: 127.0.0.1 | Exception: "Got KeyError when attempting to get a value for field `email` on serializer `CustomerProfileSerializer`.\nThe serializer field might be named incorrectly and not match any attribute or key on the `dict` instance.\nOriginal exception text was: 'users'." | View: <apps.users.api.v1.views.customer_profile.CustomerProfileViewSet object at 0x0000010CBF2D2ED0> | Method: POST | Path: /api/v1/customers/ab1e3cb3-7fe9-452c-90f6-1b8d38d02444/upload-avatar/
+Traceback (most recent call last):
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\fields.py", line 437, in get_attribute
+    return get_attribute(instance, self.source_attrs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\fields.py", line 102, in get_attribute
+    instance = instance[attr]
+               ~~~~~~~~^^^^^^
+KeyError: 'users'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\apps\users\api\v1\views\customer_profile.py", line 163, in upload_avatar
+    print(serializer.data)
+          ^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\serializers.py", line 573, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\serializers.py", line 253, in data
+    self._data = self.to_representation(self.validated_data)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\serializers.py", line 527, in to_representation
+    attribute = field.get_attribute(instance)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\fields.py", line 470, in get_attribute
+    raise type(exc)(msg)
+KeyError: "Got KeyError when attempting to get a value for field `email` on serializer `CustomerProfileSerializer`.\nThe serializer field might be named incorrectly and not match any attribute or key on the `dict` instance.\nOriginal exception text was: 'users'."
+Internal Server Error: /api/v1/customers/ab1e3cb3-7fe9-452c-90f6-1b8d38d02444/upload-avatar/
+IP: 127.0.0.1 | Exception: "Got KeyError when attempting to get a value for field `email` on serializer `CustomerProfileSerializer`.\nThe serializer field might be named incorrectly and not match any attribute or key on the `dict` instance.\nOriginal exception text was: 'user'." | View: <apps.users.api.v1.views.customer_profile.CustomerProfileViewSet object at 0x000001F949CEBDD0> | Method: POST | Path: /api/v1/customers/ab1e3cb3-7fe9-452c-90f6-1b8d38d02444/upload-avatar/
+Traceback (most recent call last):
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\fields.py", line 437, in get_attribute
+    return get_attribute(instance, self.source_attrs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\fields.py", line 102, in get_attribute
+    instance = instance[attr]
+               ~~~~~~~~^^^^^^
+KeyError: 'user'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\apps\users\api\v1\views\customer_profile.py", line 163, in upload_avatar
+    print(serializer.data)
+          ^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\serializers.py", line 573, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\serializers.py", line 253, in data
+    self._data = self.to_representation(self.validated_data)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\serializers.py", line 527, in to_representation
+    attribute = field.get_attribute(instance)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\fields.py", line 470, in get_attribute
+    raise type(exc)(msg)
+KeyError: "Got KeyError when attempting to get a value for field `email` on serializer `CustomerProfileSerializer`.\nThe serializer field might be named incorrectly and not match any attribute or key on the `dict` instance.\nOriginal exception text was: 'user'."
+Internal Server Error: /api/v1/customers/ab1e3cb3-7fe9-452c-90f6-1b8d38d02444/upload-avatar/
+IP: 127.0.0.1 | Exception: {'detail': ErrorDetail(string='Given token not valid for any token type', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='Token is expired', code='token_not_valid')}]} | View: <apps.restaurants.api.v1.views.restaurant.RestaurantProfileViewSet object at 0x000001F949F394F0> | Method: GET | Path: /api/v1/restaurants/
+Traceback (most recent call last):
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 503, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 420, in initial
+    self.perform_authentication(request)
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 330, in perform_authentication
+    request.user
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\request.py", line 232, in user
+    self._authenticate()
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\request.py", line 385, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework_simplejwt\authentication.py", line 49, in authenticate
+    validated_token = self.get_validated_token(raw_token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework_simplejwt\authentication.py", line 113, in get_validated_token
+    raise InvalidToken(
+rest_framework_simplejwt.exceptions.InvalidToken: {'detail': ErrorDetail(string='Given token not valid for any token type', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='Token is expired', code='token_not_valid')}]}
+Internal Server Error: /api/v1/restaurants/
+IP: 127.0.0.1 | Exception: {'detail': ErrorDetail(string='Given token not valid for any token type', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='Token is expired', code='token_not_valid')}]} | View: <apps.users.api.v1.views.customer_profile.CustomerProfileViewSet object at 0x000001F9498CE8D0> | Method: GET | Path: /api/v1/customers/ab1e3cb3-7fe9-452c-90f6-1b8d38d02444/
+Traceback (most recent call last):
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 503, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 420, in initial
+    self.perform_authentication(request)
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 330, in perform_authentication
+    request.user
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\request.py", line 232, in user
+    self._authenticate()
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\request.py", line 385, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework_simplejwt\authentication.py", line 49, in authenticate
+    validated_token = self.get_validated_token(raw_token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework_simplejwt\authentication.py", line 113, in get_validated_token
+    raise InvalidToken(
+rest_framework_simplejwt.exceptions.InvalidToken: {'detail': ErrorDetail(string='Given token not valid for any token type', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='Token is expired', code='token_not_valid')}]}
+Internal Server Error: /api/v1/customers/ab1e3cb3-7fe9-452c-90f6-1b8d38d02444/
+IP: 127.0.0.1 | Exception: {'detail': ErrorDetail(string='Given token not valid for any token type', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='Token is expired', code='token_not_valid')}]} | View: <apps.users.api.v1.views.customer_profile.CustomerProfileViewSet object at 0x000001F9498CF170> | Method: GET | Path: /api/v1/customers/ab1e3cb3-7fe9-452c-90f6-1b8d38d02444/
+Traceback (most recent call last):
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 503, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 420, in initial
+    self.perform_authentication(request)
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 330, in perform_authentication
+    request.user
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\request.py", line 232, in user
+    self._authenticate()
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\request.py", line 385, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework_simplejwt\authentication.py", line 49, in authenticate
+    validated_token = self.get_validated_token(raw_token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework_simplejwt\authentication.py", line 113, in get_validated_token
+    raise InvalidToken(
+rest_framework_simplejwt.exceptions.InvalidToken: {'detail': ErrorDetail(string='Given token not valid for any token type', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='Token is expired', code='token_not_valid')}]}
+Internal Server Error: /api/v1/customers/ab1e3cb3-7fe9-452c-90f6-1b8d38d02444/
+IP: 127.0.0.1 | Exception: {'detail': ErrorDetail(string='Given token not valid for any token type', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='Token is expired', code='token_not_valid')}]} | View: <apps.users.api.v1.views.customer_profile.CustomerProfileViewSet object at 0x000001F9498CEB10> | Method: GET | Path: /api/v1/customers/ab1e3cb3-7fe9-452c-90f6-1b8d38d02444/
+Traceback (most recent call last):
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 503, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 420, in initial
+    self.perform_authentication(request)
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 330, in perform_authentication
+    request.user
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\request.py", line 232, in user
+    self._authenticate()
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\request.py", line 385, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework_simplejwt\authentication.py", line 49, in authenticate
+    validated_token = self.get_validated_token(raw_token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework_simplejwt\authentication.py", line 113, in get_validated_token
+    raise InvalidToken(
+rest_framework_simplejwt.exceptions.InvalidToken: {'detail': ErrorDetail(string='Given token not valid for any token type', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='Token is expired', code='token_not_valid')}]}
+Internal Server Error: /api/v1/customers/ab1e3cb3-7fe9-452c-90f6-1b8d38d02444/
+IP: 127.0.0.1 | Exception: "Got KeyError when attempting to get a value for field `email` on serializer `CustomerProfileSerializer`.\nThe serializer field might be named incorrectly and not match any attribute or key on the `dict` instance.\nOriginal exception text was: 'user'." | View: <apps.users.api.v1.views.customer_profile.CustomerProfileViewSet object at 0x000001F9498CE9C0> | Method: POST | Path: /api/v1/customers/ab1e3cb3-7fe9-452c-90f6-1b8d38d02444/upload-avatar/
+Traceback (most recent call last):
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\fields.py", line 437, in get_attribute
+    return get_attribute(instance, self.source_attrs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\fields.py", line 102, in get_attribute
+    instance = instance[attr]
+               ~~~~~~~~^^^^^^
+KeyError: 'user'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\apps\users\api\v1\views\customer_profile.py", line 163, in upload_avatar
+    print(serializer.data)
+          ^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\serializers.py", line 573, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\serializers.py", line 253, in data
+    self._data = self.to_representation(self.validated_data)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\serializers.py", line 527, in to_representation
+    attribute = field.get_attribute(instance)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\fields.py", line 470, in get_attribute
+    raise type(exc)(msg)
+KeyError: "Got KeyError when attempting to get a value for field `email` on serializer `CustomerProfileSerializer`.\nThe serializer field might be named incorrectly and not match any attribute or key on the `dict` instance.\nOriginal exception text was: 'user'."
+Internal Server Error: /api/v1/customers/ab1e3cb3-7fe9-452c-90f6-1b8d38d02444/upload-avatar/
+IP: 127.0.0.1 | Exception: Method "PATCH" not allowed. | View: <apps.users.api.v1.views.customer_profile.CustomerProfileViewSet object at 0x0000026A45998CB0> | Method: PATCH | Path: /api/v1/customers/ab1e3cb3-7fe9-452c-90f6-1b8d38d02444/upload-avatar/
+Traceback (most recent call last):
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 173, in http_method_not_allowed
+    raise exceptions.MethodNotAllowed(request.method)
+rest_framework.exceptions.MethodNotAllowed: Method "PATCH" not allowed.
+Internal Server Error: /api/v1/customers/ab1e3cb3-7fe9-452c-90f6-1b8d38d02444/upload-avatar/
+IP: 127.0.0.1 | Exception: "Got KeyError when attempting to get a value for field `email` on serializer `CustomerProfileSerializer`.\nThe serializer field might be named incorrectly and not match any attribute or key on the `dict` instance.\nOriginal exception text was: 'user'." | View: <apps.users.api.v1.views.customer_profile.CustomerProfileViewSet object at 0x0000026A46F4F260> | Method: POST | Path: /api/v1/customers/ab1e3cb3-7fe9-452c-90f6-1b8d38d02444/upload-avatar/
+Traceback (most recent call last):
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\fields.py", line 437, in get_attribute
+    return get_attribute(instance, self.source_attrs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\fields.py", line 102, in get_attribute
+    instance = instance[attr]
+               ~~~~~~~~^^^^^^
+KeyError: 'user'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\apps\users\api\v1\views\customer_profile.py", line 163, in upload_avatar
+    print(serializer.data)
+          ^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\serializers.py", line 573, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\serializers.py", line 253, in data
+    self._data = self.to_representation(self.validated_data)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\serializers.py", line 527, in to_representation
+    attribute = field.get_attribute(instance)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\fields.py", line 470, in get_attribute
+    raise type(exc)(msg)
+KeyError: "Got KeyError when attempting to get a value for field `email` on serializer `CustomerProfileSerializer`.\nThe serializer field might be named incorrectly and not match any attribute or key on the `dict` instance.\nOriginal exception text was: 'user'."
+Internal Server Error: /api/v1/customers/ab1e3cb3-7fe9-452c-90f6-1b8d38d02444/upload-avatar/
+IP: 127.0.0.1 | Exception: {'email': [ErrorDetail(string='This field is required.', code='required')], 'phone_number': [ErrorDetail(string='This field is required.', code='required')]} | View: <apps.users.api.v1.views.customer_profile.CustomerProfileViewSet object at 0x000002D31E1CFFE0> | Method: POST | Path: /api/v1/customers/ab1e3cb3-7fe9-452c-90f6-1b8d38d02444/upload-avatar/
+Traceback (most recent call last):
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\apps\users\api\v1\views\customer_profile.py", line 162, in upload_avatar
+    serializer.is_valid(raise_exception=True)
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\serializers.py", line 233, in is_valid
+    raise ValidationError(self.errors)
+rest_framework.exceptions.ValidationError: {'email': [ErrorDetail(string='This field is required.', code='required')], 'phone_number': [ErrorDetail(string='This field is required.', code='required')]}
+IP: 127.0.0.1 | Exception: "Got KeyError when attempting to get a value for field `email` on serializer `CustomerProfileSerializer`.\nThe serializer field might be named incorrectly and not match any attribute or key on the `dict` instance.\nOriginal exception text was: 'user'." | View: <apps.users.api.v1.views.customer_profile.CustomerProfileViewSet object at 0x000001ACED941730> | Method: POST | Path: /api/v1/customers/ab1e3cb3-7fe9-452c-90f6-1b8d38d02444/upload-avatar/
+Traceback (most recent call last):
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\fields.py", line 437, in get_attribute
+    return get_attribute(instance, self.source_attrs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\fields.py", line 102, in get_attribute
+    instance = instance[attr]
+               ~~~~~~~~^^^^^^
+KeyError: 'user'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\apps\users\api\v1\views\customer_profile.py", line 163, in upload_avatar
+    print(serializer.data)
+          ^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\serializers.py", line 573, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\serializers.py", line 253, in data
+    self._data = self.to_representation(self.validated_data)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\serializers.py", line 527, in to_representation
+    attribute = field.get_attribute(instance)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\fields.py", line 470, in get_attribute
+    raise type(exc)(msg)
+KeyError: "Got KeyError when attempting to get a value for field `email` on serializer `CustomerProfileSerializer`.\nThe serializer field might be named incorrectly and not match any attribute or key on the `dict` instance.\nOriginal exception text was: 'user'."
+Internal Server Error: /api/v1/customers/ab1e3cb3-7fe9-452c-90f6-1b8d38d02444/upload-avatar/
+IP: 127.0.0.1 | Exception: "Got KeyError when attempting to get a value for field `email` on serializer `CustomerProfileSerializer`.\nThe serializer field might be named incorrectly and not match any attribute or key on the `dict` instance.\nOriginal exception text was: 'user'." | View: <apps.users.api.v1.views.customer_profile.CustomerProfileViewSet object at 0x000002077E8DB680> | Method: POST | Path: /api/v1/customers/ab1e3cb3-7fe9-452c-90f6-1b8d38d02444/upload-avatar/
+Traceback (most recent call last):
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\fields.py", line 437, in get_attribute
+    return get_attribute(instance, self.source_attrs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\fields.py", line 102, in get_attribute
+    instance = instance[attr]
+               ~~~~~~~~^^^^^^
+KeyError: 'user'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\apps\users\api\v1\views\customer_profile.py", line 163, in upload_avatar
+    print(serializer.data)
+          ^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\serializers.py", line 573, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\serializers.py", line 253, in data
+    self._data = self.to_representation(self.validated_data)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\serializers.py", line 527, in to_representation
+    attribute = field.get_attribute(instance)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\fields.py", line 470, in get_attribute
+    raise type(exc)(msg)
+KeyError: "Got KeyError when attempting to get a value for field `email` on serializer `CustomerProfileSerializer`.\nThe serializer field might be named incorrectly and not match any attribute or key on the `dict` instance.\nOriginal exception text was: 'user'."
+Internal Server Error: /api/v1/customers/ab1e3cb3-7fe9-452c-90f6-1b8d38d02444/upload-avatar/
+IP: 127.0.0.1 | Exception: "Got KeyError when attempting to get a value for field `email` on serializer `CustomerProfileSerializer`.\nThe serializer field might be named incorrectly and not match any attribute or key on the `dict` instance.\nOriginal exception text was: 'user'." | View: <apps.users.api.v1.views.customer_profile.CustomerProfileViewSet object at 0x00000249555770B0> | Method: POST | Path: /api/v1/customers/ab1e3cb3-7fe9-452c-90f6-1b8d38d02444/upload-avatar/
+Traceback (most recent call last):
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\fields.py", line 437, in get_attribute
+    return get_attribute(instance, self.source_attrs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\fields.py", line 102, in get_attribute
+    instance = instance[attr]
+               ~~~~~~~~^^^^^^
+KeyError: 'user'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\apps\users\api\v1\views\customer_profile.py", line 168, in upload_avatar
+    data=serializer.data,
+         ^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\serializers.py", line 573, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\serializers.py", line 253, in data
+    self._data = self.to_representation(self.validated_data)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\serializers.py", line 527, in to_representation
+    attribute = field.get_attribute(instance)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\fields.py", line 470, in get_attribute
+    raise type(exc)(msg)
+KeyError: "Got KeyError when attempting to get a value for field `email` on serializer `CustomerProfileSerializer`.\nThe serializer field might be named incorrectly and not match any attribute or key on the `dict` instance.\nOriginal exception text was: 'user'."
+Internal Server Error: /api/v1/customers/ab1e3cb3-7fe9-452c-90f6-1b8d38d02444/upload-avatar/
+IP: 127.0.0.1 | Exception: name 'serializer' is not defined | View: <apps.users.api.v1.views.customer_profile.CustomerProfileViewSet object at 0x0000028919D92CF0> | Method: POST | Path: /api/v1/customers/ab1e3cb3-7fe9-452c-90f6-1b8d38d02444/upload-avatar/
+Traceback (most recent call last):
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\apps\users\api\v1\views\customer_profile.py", line 168, in upload_avatar
+    data=serializer.data,
+         ^^^^^^^^^^
+NameError: name 'serializer' is not defined
+Internal Server Error: /api/v1/customers/ab1e3cb3-7fe9-452c-90f6-1b8d38d02444/upload-avatar/
+IP: 127.0.0.1 | Exception: null value in column "user_id" of relation "customer_profiles" violates not-null constraint
+DETAIL:  Failing row contains (2026-06-17 05:34:11.221403+00, 2026-06-17 05:34:11.221403+00, b1163309-0f49-480d-a978-2687d58b281c, customer_profile_images/pizza_PkxhMuB.png, null, [], 0, 0, null).
+ | View: <apps.users.api.v1.views.customer_profile.CustomerProfileViewSet object at 0x00000243CBBABB30> | Method: POST | Path: /api/v1/customers/ab1e3cb3-7fe9-452c-90f6-1b8d38d02444/upload-avatar/
+Traceback (most recent call last):
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.errors.NotNullViolation: null value in column "user_id" of relation "customer_profiles" violates not-null constraint
+DETAIL:  Failing row contains (2026-06-17 05:34:11.221403+00, 2026-06-17 05:34:11.221403+00, b1163309-0f49-480d-a978-2687d58b281c, customer_profile_images/pizza_PkxhMuB.png, null, [], 0, 0, null).
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\apps\users\api\v1\views\customer_profile.py", line 164, in upload_avatar
+    serializer.save()
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\serializers.py", line 210, in save
+    self.instance = self.create(validated_data)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\serializers.py", line 991, in create
+    instance = ModelClass._default_manager.create(**validated_data)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\django\db\models\query.py", line 665, in create
+    obj.save(force_insert=True, using=self.db)
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\django\db\models\base.py", line 902, in save
+    self.save_base(
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\django\db\models\base.py", line 1008, in save_base
+    updated = self._save_table(
+              ^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\django\db\models\base.py", line 1169, in _save_table
+    results = self._do_insert(
+              ^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\django\db\models\base.py", line 1210, in _do_insert
+    return manager._insert(
+           ^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\django\db\models\query.py", line 1873, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\django\db\models\sql\compiler.py", line 1882, in execute_sql
+    cursor.execute(sql, params)
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.IntegrityError: null value in column "user_id" of relation "customer_profiles" violates not-null constraint
+DETAIL:  Failing row contains (2026-06-17 05:34:11.221403+00, 2026-06-17 05:34:11.221403+00, b1163309-0f49-480d-a978-2687d58b281c, customer_profile_images/pizza_PkxhMuB.png, null, [], 0, 0, null).
+
+Internal Server Error: /api/v1/customers/ab1e3cb3-7fe9-452c-90f6-1b8d38d02444/upload-avatar/
+IP: 127.0.0.1 | Exception: "Got KeyError when attempting to get a value for field `email` on serializer `CustomerProfileSerializer`.\nThe serializer field might be named incorrectly and not match any attribute or key on the `dict` instance.\nOriginal exception text was: 'user'." | View: <apps.users.api.v1.views.customer_profile.CustomerProfileViewSet object at 0x000001E20DACBD10> | Method: POST | Path: /api/v1/customers/ab1e3cb3-7fe9-452c-90f6-1b8d38d02444/upload-avatar/
+Traceback (most recent call last):
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\fields.py", line 437, in get_attribute
+    return get_attribute(instance, self.source_attrs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\fields.py", line 102, in get_attribute
+    instance = instance[attr]
+               ~~~~~~~~^^^^^^
+KeyError: 'user'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\apps\users\api\v1\views\customer_profile.py", line 163, in upload_avatar
+    print(serializer.data)
+          ^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\serializers.py", line 573, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\serializers.py", line 253, in data
+    self._data = self.to_representation(self.validated_data)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\serializers.py", line 527, in to_representation
+    attribute = field.get_attribute(instance)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\fields.py", line 470, in get_attribute
+    raise type(exc)(msg)
+KeyError: "Got KeyError when attempting to get a value for field `email` on serializer `CustomerProfileSerializer`.\nThe serializer field might be named incorrectly and not match any attribute or key on the `dict` instance.\nOriginal exception text was: 'user'."
+Internal Server Error: /api/v1/customers/ab1e3cb3-7fe9-452c-90f6-1b8d38d02444/upload-avatar/
+IP: 127.0.0.1 | Exception: {'detail': ErrorDetail(string='Given token not valid for any token type', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='Token is expired', code='token_not_valid')}]} | View: <apps.users.api.v1.views.customer_profile.CustomerProfileViewSet object at 0x00000293140A3710> | Method: POST | Path: /api/v1/customers/ab1e3cb3-7fe9-452c-90f6-1b8d38d02444/upload-avatar/
+Traceback (most recent call last):
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 503, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 420, in initial
+    self.perform_authentication(request)
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 330, in perform_authentication
+    request.user
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\request.py", line 232, in user
+    self._authenticate()
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\request.py", line 385, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework_simplejwt\authentication.py", line 49, in authenticate
+    validated_token = self.get_validated_token(raw_token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework_simplejwt\authentication.py", line 113, in get_validated_token
+    raise InvalidToken(
+rest_framework_simplejwt.exceptions.InvalidToken: {'detail': ErrorDetail(string='Given token not valid for any token type', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='Token is expired', code='token_not_valid')}]}
+Internal Server Error: /api/v1/customers/ab1e3cb3-7fe9-452c-90f6-1b8d38d02444/upload-avatar/
+IP: 127.0.0.1 | Exception: "Got KeyError when attempting to get a value for field `email` on serializer `CustomerProfileSerializer`.\nThe serializer field might be named incorrectly and not match any attribute or key on the `dict` instance.\nOriginal exception text was: 'users'." | View: <apps.users.api.v1.views.customer_profile.CustomerProfileViewSet object at 0x0000029314144350> | Method: POST | Path: /api/v1/customers/ab1e3cb3-7fe9-452c-90f6-1b8d38d02444/upload-avatar/
+Traceback (most recent call last):
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\fields.py", line 437, in get_attribute
+    return get_attribute(instance, self.source_attrs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\fields.py", line 102, in get_attribute
+    instance = instance[attr]
+               ~~~~~~~~^^^^^^
+KeyError: 'users'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\apps\users\api\v1\views\customer_profile.py", line 163, in upload_avatar
+    print(serializer.data)
+          ^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\serializers.py", line 573, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\serializers.py", line 253, in data
+    self._data = self.to_representation(self.validated_data)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\serializers.py", line 527, in to_representation
+    attribute = field.get_attribute(instance)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\fields.py", line 470, in get_attribute
+    raise type(exc)(msg)
+KeyError: "Got KeyError when attempting to get a value for field `email` on serializer `CustomerProfileSerializer`.\nThe serializer field might be named incorrectly and not match any attribute or key on the `dict` instance.\nOriginal exception text was: 'users'."
+Internal Server Error: /api/v1/customers/ab1e3cb3-7fe9-452c-90f6-1b8d38d02444/upload-avatar/
+IP: 127.0.0.1 | Exception: "Got KeyError when attempting to get a value for field `email` on serializer `CustomerProfileSerializer`.\nThe serializer field might be named incorrectly and not match any attribute or key on the `dict` instance.\nOriginal exception text was: 'users'." | View: <apps.users.api.v1.views.customer_profile.CustomerProfileViewSet object at 0x0000020317497DD0> | Method: POST | Path: /api/v1/customers/ab1e3cb3-7fe9-452c-90f6-1b8d38d02444/upload-avatar/
+Traceback (most recent call last):
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\fields.py", line 437, in get_attribute
+    return get_attribute(instance, self.source_attrs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\fields.py", line 102, in get_attribute
+    instance = instance[attr]
+               ~~~~~~~~^^^^^^
+KeyError: 'users'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\apps\users\api\v1\views\customer_profile.py", line 170, in upload_avatar
+    data=serializer.data,
+         ^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\serializers.py", line 573, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\serializers.py", line 253, in data
+    self._data = self.to_representation(self.validated_data)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\serializers.py", line 527, in to_representation
+    attribute = field.get_attribute(instance)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\fields.py", line 470, in get_attribute
+    raise type(exc)(msg)
+KeyError: "Got KeyError when attempting to get a value for field `email` on serializer `CustomerProfileSerializer`.\nThe serializer field might be named incorrectly and not match any attribute or key on the `dict` instance.\nOriginal exception text was: 'users'."
+Internal Server Error: /api/v1/customers/ab1e3cb3-7fe9-452c-90f6-1b8d38d02444/upload-avatar/
+IP: 127.0.0.1 | Exception: "Got KeyError when attempting to get a value for field `email` on serializer `CustomerProfileSerializer`.\nThe serializer field might be named incorrectly and not match any attribute or key on the `dict` instance.\nOriginal exception text was: 'users'." | View: <apps.users.api.v1.views.customer_profile.CustomerProfileViewSet object at 0x000001601C4A7B90> | Method: POST | Path: /api/v1/customers/ab1e3cb3-7fe9-452c-90f6-1b8d38d02444/upload-avatar/
+Traceback (most recent call last):
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\fields.py", line 437, in get_attribute
+    return get_attribute(instance, self.source_attrs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\fields.py", line 102, in get_attribute
+    instance = instance[attr]
+               ~~~~~~~~^^^^^^
+KeyError: 'users'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\apps\users\api\v1\views\customer_profile.py", line 170, in upload_avatar
+    data=serializer.data,
+         ^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\serializers.py", line 573, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\serializers.py", line 253, in data
+    self._data = self.to_representation(self.validated_data)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\serializers.py", line 527, in to_representation
+    attribute = field.get_attribute(instance)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\fields.py", line 470, in get_attribute
+    raise type(exc)(msg)
+KeyError: "Got KeyError when attempting to get a value for field `email` on serializer `CustomerProfileSerializer`.\nThe serializer field might be named incorrectly and not match any attribute or key on the `dict` instance.\nOriginal exception text was: 'users'."
+Internal Server Error: /api/v1/customers/ab1e3cb3-7fe9-452c-90f6-1b8d38d02444/upload-avatar/
+IP: 127.0.0.1 | Exception: "Got KeyError when attempting to get a value for field `email` on serializer `CustomerProfileSerializer`.\nThe serializer field might be named incorrectly and not match any attribute or key on the `dict` instance.\nOriginal exception text was: 'user'." | View: <apps.users.api.v1.views.customer_profile.CustomerProfileViewSet object at 0x000001BEB4C18CB0> | Method: POST | Path: /api/v1/customers/ab1e3cb3-7fe9-452c-90f6-1b8d38d02444/upload-avatar/
+Traceback (most recent call last):
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\fields.py", line 437, in get_attribute
+    return get_attribute(instance, self.source_attrs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\fields.py", line 102, in get_attribute
+    instance = instance[attr]
+               ~~~~~~~~^^^^^^
+KeyError: 'user'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\apps\users\api\v1\views\customer_profile.py", line 170, in upload_avatar
+    data=serializer.data,
+         ^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\serializers.py", line 573, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\serializers.py", line 253, in data
+    self._data = self.to_representation(self.validated_data)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\serializers.py", line 527, in to_representation
+    attribute = field.get_attribute(instance)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\fields.py", line 470, in get_attribute
+    raise type(exc)(msg)
+KeyError: "Got KeyError when attempting to get a value for field `email` on serializer `CustomerProfileSerializer`.\nThe serializer field might be named incorrectly and not match any attribute or key on the `dict` instance.\nOriginal exception text was: 'user'."
+Internal Server Error: /api/v1/customers/ab1e3cb3-7fe9-452c-90f6-1b8d38d02444/upload-avatar/
+IP: 127.0.0.1 | Exception: "Got KeyError when attempting to get a value for field `email` on serializer `CustomerProfileSerializer`.\nThe serializer field might be named incorrectly and not match any attribute or key on the `dict` instance.\nOriginal exception text was: 'user'." | View: <apps.users.api.v1.views.customer_profile.CustomerProfileViewSet object at 0x000001BEB65C4260> | Method: POST | Path: /api/v1/customers/ab1e3cb3-7fe9-452c-90f6-1b8d38d02444/upload-avatar/
+Traceback (most recent call last):
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\fields.py", line 437, in get_attribute
+    return get_attribute(instance, self.source_attrs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\fields.py", line 102, in get_attribute
+    instance = instance[attr]
+               ~~~~~~~~^^^^^^
+KeyError: 'user'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\apps\users\api\v1\views\customer_profile.py", line 170, in upload_avatar
+    data=serializer.data,
+         ^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\serializers.py", line 573, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\serializers.py", line 253, in data
+    self._data = self.to_representation(self.validated_data)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\serializers.py", line 527, in to_representation
+    attribute = field.get_attribute(instance)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\fields.py", line 470, in get_attribute
+    raise type(exc)(msg)
+KeyError: "Got KeyError when attempting to get a value for field `email` on serializer `CustomerProfileSerializer`.\nThe serializer field might be named incorrectly and not match any attribute or key on the `dict` instance.\nOriginal exception text was: 'user'."
+Internal Server Error: /api/v1/customers/ab1e3cb3-7fe9-452c-90f6-1b8d38d02444/upload-avatar/
+IP: 127.0.0.1 | Exception: "Got KeyError when attempting to get a value for field `email` on serializer `CustomerProfileSerializer`.\nThe serializer field might be named incorrectly and not match any attribute or key on the `dict` instance.\nOriginal exception text was: 'user'." | View: <apps.users.api.v1.views.customer_profile.CustomerProfileViewSet object at 0x000001F6BD0578F0> | Method: POST | Path: /api/v1/customers/ab1e3cb3-7fe9-452c-90f6-1b8d38d02444/upload-avatar/
+Traceback (most recent call last):
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\fields.py", line 437, in get_attribute
+    return get_attribute(instance, self.source_attrs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\fields.py", line 102, in get_attribute
+    instance = instance[attr]
+               ~~~~~~~~^^^^^^
+KeyError: 'user'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\apps\users\api\v1\views\customer_profile.py", line 170, in upload_avatar
+    data=serializer.data,
+         ^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\serializers.py", line 573, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\serializers.py", line 253, in data
+    self._data = self.to_representation(self.validated_data)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\serializers.py", line 527, in to_representation
+    attribute = field.get_attribute(instance)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\fields.py", line 470, in get_attribute
+    raise type(exc)(msg)
+KeyError: "Got KeyError when attempting to get a value for field `email` on serializer `CustomerProfileSerializer`.\nThe serializer field might be named incorrectly and not match any attribute or key on the `dict` instance.\nOriginal exception text was: 'user'."
+Internal Server Error: /api/v1/customers/ab1e3cb3-7fe9-452c-90f6-1b8d38d02444/upload-avatar/
+IP: 127.0.0.1 | Exception: "Got KeyError when attempting to get a value for field `email` on serializer `CustomerProfileSerializer`.\nThe serializer field might be named incorrectly and not match any attribute or key on the `dict` instance.\nOriginal exception text was: 'user'." | View: <apps.users.api.v1.views.customer_profile.CustomerProfileViewSet object at 0x000001F6BD1721E0> | Method: POST | Path: /api/v1/customers/ab1e3cb3-7fe9-452c-90f6-1b8d38d02444/upload-avatar/
+Traceback (most recent call last):
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\fields.py", line 437, in get_attribute
+    return get_attribute(instance, self.source_attrs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\fields.py", line 102, in get_attribute
+    instance = instance[attr]
+               ~~~~~~~~^^^^^^
+KeyError: 'user'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\apps\users\api\v1\views\customer_profile.py", line 170, in upload_avatar
+    data=serializer.data,
+         ^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\serializers.py", line 573, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\serializers.py", line 253, in data
+    self._data = self.to_representation(self.validated_data)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\serializers.py", line 527, in to_representation
+    attribute = field.get_attribute(instance)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Training\next_js_task\Django_REST\Food_Delivery_System_Task\food_delivery_system_backend\env_task\Lib\site-packages\rest_framework\fields.py", line 470, in get_attribute
+    raise type(exc)(msg)
+KeyError: "Got KeyError when attempting to get a value for field `email` on serializer `CustomerProfileSerializer`.\nThe serializer field might be named incorrectly and not match any attribute or key on the `dict` instance.\nOriginal exception text was: 'user'."
+Internal Server Error: /api/v1/customers/ab1e3cb3-7fe9-452c-90f6-1b8d38d02444/upload-avatar/

@@ -52,7 +52,6 @@ class CustomerProfileSerializer(serializers.ModelSerializer):
     
     def update(self, instance, validated_data):
         """Updates customer profile details"""
-        
         full_name = self.initial_data.get("full_name", None)
         user_instance = instance.user
 
@@ -63,7 +62,6 @@ class CustomerProfileSerializer(serializers.ModelSerializer):
             user_instance.save()
 
         user_data = validated_data.pop("user", None)
-        print(user_data)
         if user_data:
             for attr, value in user_data.items():
                 setattr(user_instance, attr, value)
