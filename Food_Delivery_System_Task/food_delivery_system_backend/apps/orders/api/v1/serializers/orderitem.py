@@ -22,6 +22,7 @@ class OrderItemSerializer(serializers.ModelSerializer):
     class Meta:
         model = OrderItem
         fields = [
+            'id',
             'order',
             'menu_item',
             'price', 
@@ -29,6 +30,7 @@ class OrderItemSerializer(serializers.ModelSerializer):
             'special_instructions',
             'total'
         ]
+        read_only_fields=['id']
         
     def get_total(self, obj):
         """calculates total amount or orderitem price*quantitity"""

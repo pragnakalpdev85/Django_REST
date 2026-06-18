@@ -17,11 +17,15 @@ class CartSerializer(serializers.ModelSerializer):
     class Meta:
         model = Cart
         fields = [
+            'id',
             'cart_menu', 
             'subtotal',
             'tax',
             'final_total',
             'item_count',
+        ]
+        read_only_fields=[
+            'id'
         ]
     
     def get_item_count(self, obj):

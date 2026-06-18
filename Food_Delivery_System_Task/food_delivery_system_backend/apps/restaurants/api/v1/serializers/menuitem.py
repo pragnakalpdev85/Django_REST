@@ -43,6 +43,7 @@ class MenuItemCreateUpdateSerializer(serializers.ModelSerializer):
         model = MenuItem
         fields = [
             'id',
+            'restaurant',
             'name',
             'description',
             'price',

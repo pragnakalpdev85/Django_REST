@@ -21,6 +21,7 @@ class MenuItemService:
         Returns: 
             dict: returns menu item in an ReturnDict object
         """
+        print("==================")
         serializer = self.obj.get_serializer(data=self.request.data)
         serializer.is_valid(raise_exception=True)
         serializer.save()
