@@ -2,7 +2,7 @@ from rest_framework import serializers
 from apps.restaurants.models import RestaurantProfile
 from .restaurant_menuitem import RestaurantMenuItemSerializer
 from apps.common.utils.validators import validate_avatar_image
-import datetime
+from datetime import datetime
 
 
 class RestaurantProfileSerializer(serializers.ModelSerializer):
@@ -102,9 +102,9 @@ class RestaurantCreateUpdateSerializer(serializers.ModelSerializer):
     
     def validate(self, data):
         """Validates request data"""
-        format = "%H:%M"
-        open_time = datetime.strptime(data['opening_time'], format)
-        close_time = datetime.strptime(data['closing_time'], format)
+        format = "%H:%M:%S"
+        open_time = datetime.strptime(str(data['opening_time']), format)
+        close_time = datetime.strptime(str(data['closing_time']), format)
         
         if close_time <= open_time:
             raise serializers.ValidationError("Closing time must be after Opening time")

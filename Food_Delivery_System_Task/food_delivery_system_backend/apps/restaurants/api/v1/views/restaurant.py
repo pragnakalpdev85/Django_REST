@@ -82,16 +82,16 @@ class RestaurantProfileViewSet(viewsets.ModelViewSet):
         """
         Returns permission classes based on the current action
         """
-        
-        if self.action == 'list':
+        get_actions = ['list', 'popular', 'menu', 'active', 'reviews', 'retrieve']
+        if self.action in get_actions:
             return [AllowAny()]
         elif self.action == 'create':
-            return [IsAuthenticated(), IsRestaurantOwner()]
+            return [IsRestaurantOwner()]
         
-        return [IsAuthenticated(), IsProfileOwner(), IsRestaurantOwner(), IsOwnerOrReadOnly()]
+        return [IsRestaurantOwner()]
     
     def get_object(self):
-        """
+        """ 
         checks permission at object level and returns object
         """
         obj = super().get_object()
@@ -357,7 +357,7 @@ class RestaurantProfileViewSet(viewsets.ModelViewSet):
     @action(
         detail=False,
         methods=['get'],
-        permission_classes = [IsAuthenticated, IsRestaurantOwner],
+        permission_classes = [IsAuthenticated],
         serializer_class = RestaurantInfoSerializer,
         url_path="owner-restaurants"
     )
@@ -417,7 +417,7 @@ class RestaurantProfileViewSet(viewsets.ModelViewSet):
     @action(
         detail=True,
         methods=['post'],
-        permission_classes=[IsAuthenticated, IsProfileOwner],
+        permission_classes=[IsRestaurantOwner],
         serializer_class=RestaurantProfileSerializer,
         url_path="upload-logo"
     )

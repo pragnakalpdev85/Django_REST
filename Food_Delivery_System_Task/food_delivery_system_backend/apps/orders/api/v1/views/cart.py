@@ -23,16 +23,13 @@ class CartViewSet(viewsets.ModelViewSet):
     permission_classes = [IsAuthenticated, IsCustomer, IsOwnerOrReadOnly]
     throttle_classes = [UserRateThrottle]
 
-
     def get_queryset(self):
         """
         Return the cart for the currently authenticated customer.
         Prefetches cart_menu to optimize database queries.
         """
         user = self.request.user
-        if hasattr(user, 'customer'):
-            return OrderCartSelector.get_cart_by_customer(user.customer)
-        return OrderCartSelector.get_empty_cart()
+        return OrderCartSelector.get_cart_by_customer(user.customer)
     
     def get_object(self):
         """
@@ -42,7 +39,6 @@ class CartViewSet(viewsets.ModelViewSet):
         self.check_object_permissions(self.request, obj)
         
         return obj
-
 
     @extend_schema(
         summary="List customer's cart",
@@ -150,6 +146,26 @@ class CartViewSet(viewsets.ModelViewSet):
             message="Cart deleted successfully",
             data=None,
             status_code=status.HTTP_204_NO_CONTENT
+        )
+        
+    @extend_schema(
+        summary="Gets cart",
+        description="Gets cart",
+        tags=['Cart'])
+    @action(
+        detail=False,
+        methods=['get'],
+        url_path='get-cart',
+        permission_classes=[IsAuthenticated, IsCustomer, IsOwnerOrReadOnly],
+        serializer_class=CartSerializer,
+    )
+    def get_cart(self, request):
+        cart = self.get_queryset()
+        serializer = self.get_serializer(cart)
+        return success_response(
+            message="OrderItem added successfully",
+            data=serializer.data,
+            status_code=status.HTTP_200_OK
         )
     
     

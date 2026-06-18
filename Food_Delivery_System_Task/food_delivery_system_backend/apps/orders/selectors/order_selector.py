@@ -65,11 +65,16 @@ class OrderCartSelector:
         """
         Returns cart of the customer
         """
-        return (
+        cart = (
             Cart.objects
             .filter(customer=customer)
             .prefetch_related('cart_menu')
+            .first()
         )
+        if not cart:
+            cart = Cart.objects.create(customer=customer)
+            
+        return cart
         
     def get_empty_cart():
         """

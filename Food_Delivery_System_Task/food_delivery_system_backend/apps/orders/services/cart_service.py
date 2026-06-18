@@ -37,7 +37,7 @@ class CartService:
             quantity=data['quantity'],
         )
     
-        cart = self.obj.get_queryset().first()
+        cart = self.obj.get_queryset()
         order_items = list(OrderCartSelector.get_orderitems_of_cart(cart))
         if new_item in order_items:
             idx = order_items.index(new_item)
@@ -61,7 +61,7 @@ class CartService:
         data = self.request.data
         serializer = OrderItemCreateSerializer(data=data)
         serializer.is_valid(raise_exception=True)
-        item = OrderItem.objects.filter(id = UUID(data['menu_item'])).first()
+        item = OrderItem.objects.filter(id = UUID(data['order_item']))
         
         if not item:
             raise DomainError(ErrorCodes.ORDER_ITEM_DOES_NOT_EXISTS)
