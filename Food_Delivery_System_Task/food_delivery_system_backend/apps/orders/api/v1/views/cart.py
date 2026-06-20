@@ -8,6 +8,7 @@ from drf_spectacular.utils import extend_schema, OpenApiResponse
 from apps.orders.models import OrderItem
 from apps.orders.selectors import OrderCartSelector
 from apps.restaurants.models import MenuItem
+from apps.common.api.exceptions import DomainError, ErrorCodes
 from apps.orders.services import CartService
 from apps.orders.api.v1.serializers import CartSerializer, OrderMenuItemSerializer, OrderItemCreateSerializer
 from apps.common.utils.permissions import IsCustomer, IsOwnerOrReadOnly
@@ -225,7 +226,73 @@ class CartViewSet(viewsets.ModelViewSet):
             data=data,
             status_code=status.HTTP_200_OK
         )
-
+        
+    @extend_schema(
+        summary="Remove orderitem from cart",
+        description="Removes orderitem from customer's cart",
+        responses={
+            200: OpenApiResponse(description="Orderitem removed"),
+            400: OpenApiResponse(description="Invalid input / Validation error")
+        },
+        tags=['Cart'])
+    @action(
+        detail=False,
+        methods=['post'],
+        url_path='remove-cartitem-from-cart',
+        permission_classes=[IsAuthenticated, IsCustomer],
+        serializer_class=OrderMenuItemSerializer,
+    )
+    def remove_cartitem_from_cart(self, request):
+        """
+        Removes order item from the cart
+        """
+        cart = self.get_queryset()
+        data = self.request.data
+        
+        serializer = OrderItemCreateSerializer(data=data, partial=True)
+        serializer.is_valid(raise_exception=True)
+        order_items = OrderCartSelector.get_orderitems_of_cart(cart)
+        
+        item_removed = False
+        for order_item in order_items:
+            if str(order_item.menu_item.id) == str(serializer.data["menu_item"]):
+                    order_items = order_items.exclude(id=order_item.id)
+                    order_items.filter(id=order_item.id).delete()
+                    item_removed = True
+                    break
+                
+        if item_removed == False:
+            raise DomainError(ErrorCodes.ORDER_ITEM_DOES_NOT_EXISTS)
+        
+        cart.cart_menu.set(order_items)
+        cart.save()
+        cart_serializer = CartSerializer(cart)
+        
+        return success_response(
+            message="Order item is removed from cart successfully",
+            data=cart_serializer.data,
+            status_code=status.HTTP_200_OK
+        )
+        
+    @action(
+        detail=False,
+        methods=['post'],
+        url_path='clear-cart',
+        permission_classes=[IsAuthenticated, IsCustomer],
+    )
+    def clear_cart(self, request):
+        cart = self.get_queryset()
+        order_items = list(OrderCartSelector.get_orderitems_of_cart(cart))
+        order_items = []
+        cart.cart_menu.set(order_items)
+        cart.save()
+        cart_serializer = CartSerializer(cart)
+        
+        return success_response(
+            message="Cart cleared successfully",
+            data=cart_serializer.data,
+            status_code=status.HTTP_200_OK
+        )
     
     def perform_create(self, serializer):
         """

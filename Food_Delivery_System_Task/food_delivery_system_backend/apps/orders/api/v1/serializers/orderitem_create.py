@@ -7,5 +7,5 @@ class OrderItemCreateSerializer(serializers.Serializer):
     """
     
     menu_item = serializers.UUIDField()
-    quantity = serializers.IntegerField(min_value=1)
+    quantity = serializers.IntegerField(min_value=1, required=False)
     special_instructions = serializers.CharField(required=False, allow_blank=True)

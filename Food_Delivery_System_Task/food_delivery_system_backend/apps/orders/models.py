@@ -142,10 +142,12 @@ class Cart(UUIDModel, DateTimeStamped):
     def calculate_total(self):
         """calculates total amount of the order"""
         subtotal = sum(
-            item.price * item.quantity for item in self.cart_menu.all()
+            item.total for item in self.cart_menu.all()
         )
         self.subtotal = float(subtotal)
+        print(self.subtotal)
         self.total_amount = (float(subtotal) * float(self.tax)) + float(subtotal) + float(self.delivery_fee)
+        self.save()
         return self.total_amount
     
         
@@ -179,7 +181,7 @@ class OrderItem(UUIDModel, DateTimeStamped):
     )
     
     #basic fields
-    quantity = models.IntegerField(default=1)
+    quantity = models.IntegerField(default=0, null=True, blank=True)
     price = models.DecimalField(decimal_places=2, max_digits=8)
     special_instructions = models.TextField(null=True, blank=True)
     total = models.DecimalField(decimal_places=2, max_digits=8, default=0)

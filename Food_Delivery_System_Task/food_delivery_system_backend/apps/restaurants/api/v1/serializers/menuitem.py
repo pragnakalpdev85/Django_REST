@@ -19,6 +19,7 @@ class MenuItemSerializer(serializers.ModelSerializer):
     class Meta:
         model = MenuItem
         fields = [
+            'id',
             'restaurant', 
             'name', 
             'description',
@@ -30,6 +31,7 @@ class MenuItemSerializer(serializers.ModelSerializer):
             'dietary_info', 
             'total_reviews' 
         ]
+        read_only_field = ["id",]
         
 class MenuItemCreateUpdateSerializer(serializers.ModelSerializer):
     """
