@@ -188,7 +188,7 @@ class CustomerProfileViewSet(viewsets.ModelViewSet):
         serializer_class=CustomerAddressSerializer,
         url_path="list-addresses"
     )
-    def list_addresses(self, request):
+    def list_addresses(self, request, pk=None):
         """Get all addresses."""
         customer_profile = self.get_object()
         serializer = self.get_serializer(customer_profile)
@@ -213,7 +213,7 @@ class CustomerProfileViewSet(viewsets.ModelViewSet):
         serializer_class=CustomerAddressSerializer,
         url_path="create-address"
     )
-    def create_address(self, request):
+    def create_address(self, request, pk=None):
         """Add a new address to the JSON list."""
         customer_profile = self.get_object()
         serializer = AddressSerializer(data=request.data)
@@ -250,7 +250,7 @@ class CustomerProfileViewSet(viewsets.ModelViewSet):
         serializer_class=CustomerAddressSerializer,
         url_path='update-address/(?P<address_id>[^/.]+)'
     )
-    def update_address(self, request, address_id=None):
+    def update_address(self, request, pk=None, address_id=None):
         """Update an existing address by its ID."""
         customer_profile = self.get_object()
         addresses = customer_profile.saved_address or []
@@ -290,7 +290,7 @@ class CustomerProfileViewSet(viewsets.ModelViewSet):
         permission_classes=[IsAuthenticated, IsProfileOwner],
         url_path='delete-address/(?P<address_id>[^/.]+)'
     )
-    def delete_address(self, request, address_id=None):
+    def delete_address(self, request, pk=None, address_id=None):
         """Remove an address by its ID."""
         customer_profile = self.get_object()
         addresses = customer_profile.saved_address or []
