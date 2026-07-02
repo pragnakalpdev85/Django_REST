@@ -10,6 +10,7 @@ from apps.users.api.v1.serializers import CustomerProfileSerializer, CustomerAdd
 from apps.common.api.pagination import CustomerProfilePageNumberPagination
 from apps.common.utils.permissions import IsProfileOwner, IsOwnerOrReadOnly
 from apps.users.models import CustomerProfile
+import uuid
 
 @extend_schema_view(
     partial_update=extend_schema(
@@ -225,14 +226,18 @@ class CustomerProfileViewSet(viewsets.ModelViewSet):
         # Initialize list if null
         if not customer_profile.saved_address: 
             customer_profile.saved_address = []
+            customer_profile.save()
             
-        customer_profile.saved_address.append(address_data)
+        address = customer_profile.saved_address
+        address.append(address_data)
+        print(address)
+        customer_profile.saved_address = address
         customer_profile.save()
         serializer = self.get_serializer(customer_profile.saved_address)
         return success_response(
             message="Address created successfully.",
             data=serializer.data, 
-            status=status.HTTP_201_CREATED
+            status_code=status.HTTP_201_CREATED
         )
 
     @extend_schema(
@@ -250,7 +255,7 @@ class CustomerProfileViewSet(viewsets.ModelViewSet):
         serializer_class=CustomerAddressSerializer,
         url_path='update-address/(?P<address_id>[^/.]+)'
     )
-    def update_address(self, request, pk=None, address_id=None):
+    def update_address(self, request, address_id=None , pk=None):
         """Update an existing address by its ID."""
         customer_profile = self.get_object()
         addresses = customer_profile.saved_address or []

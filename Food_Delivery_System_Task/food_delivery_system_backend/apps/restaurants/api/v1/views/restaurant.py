@@ -56,6 +56,8 @@ class RestaurantProfileViewSet(viewsets.ModelViewSet):
     filterset_class = RestaurantFilters
     pagination_class = RestaurantPageNumberPagination
     
+    search_fields = ['name', 'description', 'cuisine_type', 'restaurant_menuitem__name']
+    ordering_field = ['restaurant_review__rating', 'average_rating', 'created_at']
     
     def get_queryset(self):
         """
@@ -395,7 +397,9 @@ class RestaurantProfileViewSet(viewsets.ModelViewSet):
         """
         Retrieves all reviews related to perticular restaurants
         """
+        print("hello")
         profile_object = self.get_object()
+        print(profile_object)
         queryset = RestaurantSelector.get_restaurant_reviews(profile_object)
         serializer = ReviewSerializer(queryset, many=True)
         

@@ -14,6 +14,8 @@ class OrderMenuItemSerializer(serializers.Serializer):
         """validates quantity or the order item"""
         if value <= 0:
             return serializers.ValidationError("Quantity must be greater than zero")
+        
+        return value
 
 class OrderCreateSerializer(serializers.Serializer):
     """

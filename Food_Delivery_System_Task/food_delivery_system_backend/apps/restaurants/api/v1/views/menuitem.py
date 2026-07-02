@@ -39,6 +39,9 @@ class MenuItemViewSet(viewsets.ModelViewSet):
     filter_backends = [DjangoFilterBackend, SearchFilter, OrderingFilter]
     filterset_class = MenuItemFilters
     pagination_class = MenuItemPageNumberPagination
+
+    search_fields = ['name', 'restaurant__name', 'description', 'category', 'dietary_info']
+    ordering_fields = ['menuitem_reviews__rating', 'created_at', 'price']
     
     
     def get_queryset(self):
@@ -64,9 +67,9 @@ class MenuItemViewSet(viewsets.ModelViewSet):
         Returns permission classes based on current action
         """
         if self.action in ['create', 'update', 'partial_update', 'delete']:
-            return [IsAuthenticated(), IsRestaurantOwner(), IsOwnerOrReadOnly()]
+            return [IsRestaurantOwner()]
         
-        return [AllowAny(), IsOwnerOrReadOnly()]
+        return [AllowAny()]
     
     
     def get_object(self):

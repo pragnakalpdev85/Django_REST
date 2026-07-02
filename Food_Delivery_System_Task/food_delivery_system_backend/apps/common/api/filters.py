@@ -40,6 +40,8 @@ class MenuItemFilters(django_filters.FilterSet):
     
     #filters menu items by restaurant
     restaurant = django_filters.CharFilter(field_name='restaurant_menuitem__name', lookup_expr='icontains')
+
+    name = django_filters.CharFilter(field_name="name", lookup_expr="icontains")
     
     category =django_filters.ChoiceFilter(choices=MenuItem.CATEGORY)
     #filters menu items by dietary informations
@@ -52,7 +54,7 @@ class MenuItemFilters(django_filters.FilterSet):
     #Meta informations
     class Meta:
         model = MenuItem
-        fields = ['restaurant', 'category', 'dietary_info', 'is_available', 'price__lte']   
+        fields = ['restaurant', 'name','category', 'dietary_info', 'is_available', 'price__lte']   
 
     
 class OrderFilters(django_filters.FilterSet):

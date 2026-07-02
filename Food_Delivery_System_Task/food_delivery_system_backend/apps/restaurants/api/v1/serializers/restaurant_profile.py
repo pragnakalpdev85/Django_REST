@@ -102,12 +102,13 @@ class RestaurantCreateUpdateSerializer(serializers.ModelSerializer):
     
     def validate(self, data):
         """Validates request data"""
-        format = "%H:%M:%S"
-        open_time = datetime.strptime(str(data['opening_time']), format)
-        close_time = datetime.strptime(str(data['closing_time']), format)
-        
-        if close_time <= open_time:
-            raise serializers.ValidationError("Closing time must be after Opening time")
+        if 'opening_time' in data and 'closing_time' in data:
+            format = "%H:%M:%S"
+            open_time = datetime.strptime(str(data['opening_time']), format)
+            close_time = datetime.strptime(str(data['closing_time']), format)
+            
+            if close_time <= open_time:
+                raise serializers.ValidationError("Closing time must be after Opening time")
         
         return super().validate(data)
 

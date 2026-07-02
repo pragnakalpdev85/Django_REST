@@ -66,6 +66,6 @@ class RestaurantSelector:
             Review.objects
             .filter(restaurant = restaurant)
             .all()
-            .select_related('restaurant')
+            # .select_related('restaurant')
         )
         
