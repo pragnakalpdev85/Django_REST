@@ -228,7 +228,7 @@ class OrderService():
             list: returns list of dictionaries of order datas
         """
         active = [PENDING, CONFIRMED, PREPARING, READY, PICKEDUP]
-        queryset = OrderCartSelector.get_active_orders(active)
+        queryset = OrderCartSelector.get_active_orders(active=active, user=self.request.user)
         serializer = self.obj.get_serializer(queryset, many=True)
         
         return serializer.data
@@ -240,7 +240,7 @@ class OrderService():
         Returns:
             list: returns list of dictionaries of order datas
         """
-        queryset = OrderCartSelector.get_history_orders()
+        queryset = OrderCartSelector.get_history_orders(user=self.request.user)
         serializer = self.obj.get_serializer(queryset, many=True)
         return serializer.data
         

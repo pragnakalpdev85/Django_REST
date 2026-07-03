@@ -57,9 +57,9 @@ class OrderViewSet(viewsets.ModelViewSet):
         Returns permission classes based on current actions
         """
         if self.action == 'list':
-            return [IsAuthenticated(), IsRestaurantOwner(), IsOwnerOrReadOnly()]
+            return [IsRestaurantOwner()]
         
-        return [IsAuthenticated(), IsCustomer(), IsOwnerOrReadOnly()]
+        return [IsCustomer(), IsOwnerOrReadOnly()]
         
     def get_serializer_class(self):
         """
@@ -290,7 +290,7 @@ class OrderViewSet(viewsets.ModelViewSet):
         detail=False, 
         methods=['get'], 
         url_path='active',
-        permission_classes=[IsAuthenticated, IsRestaurantOwner],
+        permission_classes=[IsAuthenticated],
         serializer_class=OrderSerializer
     )
     def active(self, request):

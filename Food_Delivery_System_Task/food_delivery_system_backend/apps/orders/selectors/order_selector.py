@@ -37,28 +37,69 @@ class OrderCartSelector:
             )
 
         
-    def get_active_orders(active):
+    def get_active_orders(user, active):
         """
         Returns all the active orders
         """
-        return (
-            Order.objects.all()
-            .select_related('customer', 'restaurant', 'driver')
-            .prefetch_related('order_menu')
-            .annotate(items_count=Count('order_menu'))
-            .filter(status__in=active)
-        )
+        if user.role == RESTAURANT:
+            return (
+                Order.objects
+                .select_related('customer', 'restaurant', 'driver')
+                .prefetch_related('order_menu')
+                .annotate(items_count=Count('order_menu'))
+                .filter(restaurant = user.restaurant_owner, status__in=active)
+            )
+        elif user.role == CUSTOMER:
+            return (
+                Order.objects
+                .select_related('customer', 'restaurant', 'driver')
+                .prefetch_related('order_menu')
+                .annotate(items_count=Count('order_menu'))
+                .filter(customer = user.customer, status__in=active)
+            )
+        elif user.role == DRIVER:
+            return (
+                Order.objects
+                .select_related('customer', 'restaurant', 'driver')
+                .prefetch_related('order_menu')
+                .annotate(items_count=Count('order_menu'))
+                .filter(driver = user.driver, status__in=active)
+            )
         
-    def get_history_orders():
+    def get_history_orders(user):
         """
         Returns all the active orders
         """
+        if user.role == RESTAURANT:
+            return (
+                Order.objects
+                .select_related('customer', 'restaurant', 'driver')
+                .prefetch_related('order_menu')
+                .annotate(items_count=Count('order_menu'))
+                .filter(restaurant = user.restaurant_owner, status__in=[DELIVERED, CANCELLED])
+            )
+        elif user.role == CUSTOMER:
+            return (
+                Order.objects
+                .select_related('customer', 'restaurant', 'driver')
+                .prefetch_related('order_menu')
+                .annotate(items_count=Count('order_menu'))
+                .filter(customer = user.customer, status__in=[DELIVERED, CANCELLED])
+            )
+        elif user.role == DRIVER:
+            return (
+                Order.objects
+                .select_related('customer', 'restaurant', 'driver')
+                .prefetch_related('order_menu')
+                .annotate(items_count=Count('order_menu'))
+                .filter(driver = user.driver, status__in=[DELIVERED, CANCELLED])
+            )
         return (
             Order.objects.all()
             .select_related('customer', 'restaurant', 'driver')
             .prefetch_related('order_menu')
             .annotate(items_count=Count('order_menu'))
-            .filter(status__in=[DELIVERED, CANCELLED])
+            .filter()
         )
         
     def get_cart_by_customer(customer):
