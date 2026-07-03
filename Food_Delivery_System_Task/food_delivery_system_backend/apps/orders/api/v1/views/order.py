@@ -2,6 +2,7 @@ from rest_framework import viewsets, status
 from rest_framework.decorators import action
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from drf_spectacular.utils import extend_schema, extend_schema_view, OpenApiResponse
+from django.shortcuts import get_object_or_404
 
 from apps.orders.services import OrderService
 from apps.common.api.filters import OrderFilters
@@ -79,9 +80,21 @@ class OrderViewSet(viewsets.ModelViewSet):
         """
         checks permission at object level and returns object
         """
-        obj = super().get_object()
-        self.check_object_permissions(self.request, obj)
-        
+        queryset = self.filter_queryset(self.get_queryset())
+
+        # Perform the lookup filtering.
+        lookup_url_kwarg = self.lookup_url_kwarg or self.lookup_field
+
+        assert lookup_url_kwarg in self.kwargs, (
+            'Expected view %s to be called with a URL keyword argument '
+            'named "%s". Fix your URL conf, or set the `.lookup_field` '
+            'attribute on the view correctly.' %
+            (self.__class__.__name__, lookup_url_kwarg)
+        )
+
+        filter_kwargs = {self.lookup_field: self.kwargs[lookup_url_kwarg]}
+        obj = get_object_or_404(queryset, **filter_kwargs)
+
         return obj
     
     
@@ -211,7 +224,7 @@ class OrderViewSet(viewsets.ModelViewSet):
         methods=['post'], 
         url_path='assign-driver',
         serializer_class=OrderSerializer,
-        permission_classes=[IsAuthenticated, IsRestaurantOwner]
+        permission_classes=[IsRestaurantOwner]
     )
     def assign_driver(self, request, pk=None):
         "Assign_driver to the perticular order"
@@ -238,7 +251,7 @@ class OrderViewSet(viewsets.ModelViewSet):
         methods=['post'], 
         url_path='cancel',
         serializer_class=OrderSerializer,
-        permission_classes=[IsAuthenticated, IsCustomer]
+        permission_classes=[IsCustomer, IsOwnerOrReadOnly]
     )
     def cancel(self, request, pk=None):
         """Cancel order with specific order id"""
@@ -264,7 +277,7 @@ class OrderViewSet(viewsets.ModelViewSet):
         detail=True, 
         methods=['post'], 
         url_path='update-status',
-        permission_classes=[IsAuthenticated,IsRestaurantOwnerOrDriver],
+        permission_classes=[IsRestaurantOwnerOrDriver],
         serializer_class=OrderSerializer    
     )
     def update_status(self, request, pk=None):

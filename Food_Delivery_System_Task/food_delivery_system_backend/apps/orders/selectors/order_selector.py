@@ -17,7 +17,7 @@ class OrderCartSelector:
                 .select_related('customer', 'restaurant', 'driver')
                 .prefetch_related('order_menu')
                 .annotate(items_count=Count('order_menu'))
-                .filter(restaurant = user)
+                .filter(restaurant = user.restaurant_owner)
             )
         elif user.role == CUSTOMER:
             return (
@@ -25,7 +25,7 @@ class OrderCartSelector:
                 .select_related('customer', 'restaurant', 'driver')
                 .prefetch_related('order_menu')
                 .annotate(items_count=Count('order_menu'))
-                .filter(customer = user)
+                .filter(customer = user.customer)
             )
         elif user.role == DRIVER:
             return (
@@ -33,7 +33,7 @@ class OrderCartSelector:
                 .select_related('customer', 'restaurant', 'driver')
                 .prefetch_related('order_menu')
                 .annotate(items_count=Count('order_menu'))
-                .filter(driver = user)
+                .filter(driver = user.driver)
             )
 
         
