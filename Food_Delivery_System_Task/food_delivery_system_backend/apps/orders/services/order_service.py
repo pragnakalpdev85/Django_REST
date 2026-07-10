@@ -205,6 +205,7 @@ class OrderService():
         
         new_status = self.request.data.get('status')
         allowed = VALID_TRANSITIONS.get(order.status, [])
+        print(new_status, allowed)
         if new_status not in allowed:
             raise DomainError(ErrorCodes.CANNOT_UPDATE_ORDER_STATUS)
         

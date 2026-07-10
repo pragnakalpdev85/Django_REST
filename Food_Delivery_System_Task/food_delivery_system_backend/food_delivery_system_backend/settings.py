@@ -44,6 +44,8 @@ SECURE_HSTS_PRELOAD = True
 # Application definition
 
 INSTALLED_APPS = [
+    'daphne',
+    'channels',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -58,7 +60,6 @@ THIRD_PARTY_APPS = [
     'rest_framework_simplejwt',
     'drf_spectacular',
     'corsheaders',
-    'channels',
     'channels_redis',
 ]
 
@@ -103,6 +104,21 @@ TEMPLATES = [
     },
 ]
 
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels_redis.core.RedisChannelLayer",
+        "CONFIG": {
+            "hosts": [{
+                "address": "redis://127.0.0.1:6379/0",
+                "socket_timeout": None,  # Bypasses the aggressive timeout crash
+            }],
+            "symmetric_encryption_keys": [],
+            "capacity": 1500,
+            # "socket_timeout": None
+        },
+    },
+}
+
 #CORS 
 CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOWED_ORIGINS = [
@@ -142,7 +158,7 @@ SPECTACULAR_SETTINGS = {
 }
 
 SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=15),
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=240),
     
     'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
     

@@ -79,6 +79,7 @@ class Order(UUIDModel, DateTimeStamped):
             models.Index(fields=['customer', 'status'], name='order_customer_status_idx'),
             models.Index(fields=['driver', 'status'], name='order_driver_status_idx'),
         ]
+        ordering = ['-created_at']
         
     def save(self, *args, **kwargs):
         """save method is overrided to generate order number"""

@@ -57,9 +57,13 @@ class OrderViewSet(viewsets.ModelViewSet):
         """
         Returns permission classes based on current actions
         """
-        if self.action == 'list':
+        if self.action in ['list', 'assign_driver']:
             return [IsRestaurantOwner()]
-        
+        if self.action in ['active', 'history']:
+            return [IsAuthenticated()]
+        if self.action == 'update_status':
+            return [IsRestaurantOwnerOrDriver()]
+
         return [IsCustomer(), IsOwnerOrReadOnly()]
         
     def get_serializer_class(self):
@@ -224,7 +228,6 @@ class OrderViewSet(viewsets.ModelViewSet):
         methods=['post'], 
         url_path='assign-driver',
         serializer_class=OrderSerializer,
-        permission_classes=[IsRestaurantOwner]
     )
     def assign_driver(self, request, pk=None):
         "Assign_driver to the perticular order"
@@ -303,17 +306,23 @@ class OrderViewSet(viewsets.ModelViewSet):
         detail=False, 
         methods=['get'], 
         url_path='active',
+        ordering = ['-created_at'],
         permission_classes=[IsAuthenticated],
-        serializer_class=OrderSerializer
+        serializer_class=OrderSerializer,
+        pagination_class = OrdersCursorPagination
     )
     def active(self, request):
         """Lists all active orders"""
+        print("="*100)
         service = OrderService(view_object=self, request_object=request)
         data = service.list_active_orders()
+
+        paginated_data = self.paginate_queryset(data)
+        response = self.get_paginated_response(paginated_data).data
         
         return success_response(
             message="Active orders retrieved successfully",
-            data=data,
+            data=response,
             status_code=status.HTTP_200_OK
         )
         
@@ -329,16 +338,21 @@ class OrderViewSet(viewsets.ModelViewSet):
         detail=False, 
         methods=['get'], 
         url_path='history',
+        ordering = ['-created_at'],
         permission_classes=[IsAuthenticated],
-        serializer_class=OrderSerializer 
+        serializer_class=OrderSerializer,
+        pagination_class = OrdersCursorPagination
     )  
     def history(self, request):
         """List all canceled or delivered data"""
         service = OrderService(view_object=self, request_object=request)
         data = service.list_history_of_orders()
+
+        paginated_data = self.paginate_queryset(data)
+        response = self.get_paginated_response(paginated_data).data
         
         return success_response(
             message="Orders history retrieved successfully",
-            data=data,
+            data=response,
             status_code=status.HTTP_200_OK
         )

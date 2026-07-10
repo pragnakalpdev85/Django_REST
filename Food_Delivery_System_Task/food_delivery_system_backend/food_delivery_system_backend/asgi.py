@@ -19,7 +19,8 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'food_delivery_system_backend.se
 
 application = ProtocolTypeRouter({
     "http": get_asgi_application(),
-    "websocket": AllowedHostsOriginValidator(
-        custom_auth(URLRouter(routing.websocket_urlpatterns))
-    )
+    # "websocket": AllowedHostsOriginValidator(
+    #     custom_auth(URLRouter(routing.websocket_urlpatterns))
+    # )
+    "websocket": custom_auth(URLRouter(routing.websocket_urlpatterns))
 })

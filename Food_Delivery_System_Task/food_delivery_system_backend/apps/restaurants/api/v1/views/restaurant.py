@@ -286,6 +286,8 @@ class RestaurantProfileViewSet(viewsets.ModelViewSet):
         detail=True, 
         methods=['get'],
         permission_classes=[AllowAny], 
+        serializer_class=RestaurantProfileSerializer,
+        search_fields=["restaurant_menuitem__name", "restaurant_menuitem__category", "restaurant_menuitem__dietary_info"],
     )
     def menu(self, request, pk=None):
         """
@@ -307,7 +309,7 @@ class RestaurantProfileViewSet(viewsets.ModelViewSet):
         items = {'restaurant_menuitem': serializer.data}
         return success_response(
             message="Menu item of restaurant retrieved successfully",
-            data=items, 
+            data=serializer.data, 
             status_code=status.HTTP_200_OK
         )
     

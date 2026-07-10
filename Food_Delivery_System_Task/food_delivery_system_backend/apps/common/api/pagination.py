@@ -41,7 +41,7 @@ class MenuItemPageNumberPagination(PageNumberPagination):
     page_size = 30
 
     
-class OrdersCursorPagination(CursorPagination):
+class OrdersCursorPagination(PageNumberPagination):
     """
     Custom CursorPagination to handle specific QuerySet slicing for orders.
 
@@ -53,7 +53,7 @@ class OrdersCursorPagination(CursorPagination):
         ordering (str): default ordering for orders data
     """
     
-    page_size = 25
+    page_size = 10
     ordering = '-created_at'
     
     

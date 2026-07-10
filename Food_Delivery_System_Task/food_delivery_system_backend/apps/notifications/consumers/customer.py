@@ -20,6 +20,7 @@ class CustomerConsumer(AsyncWebsocketConsumer):
     
     async def connect(self):    
         """Handles a new WebSocket connection requests"""
+        self.connect()
         user = self.scope.get('user')
         if not user or not user.is_authenticated:
             await self.close(code=4001)

@@ -239,7 +239,7 @@ class DriverProfileViewSet(viewsets.ModelViewSet):
     @action(
         detail=True,
         methods=['post'],
-        permission_classes=[IsAuthenticated, IsProfileOwner],
+        permission_classes=[IsProfileOwner],
         serializer_class=DriverProfileSerializer,
         url_path="upload-avatar"
     )
@@ -249,7 +249,7 @@ class DriverProfileViewSet(viewsets.ModelViewSet):
         """
         profile_object = self.get_object()
         data = {'avatar': request.data.get('avatar', None)}
-        serializer = self.get_serializer(insance=profile_object, data=data, partial=True)
+        serializer = self.get_serializer(instance=profile_object, data=data, partial=True)
         serializer.is_valid(raise_exception=True)
         serializer.save()
         

@@ -1,3 +1,5 @@
+from rest_framework.exceptions import ValidationError
+
 from uuid import UUID
 from apps.orders.models import OrderItem
 from apps.restaurants.models import MenuItem
@@ -29,7 +31,7 @@ class CartService:
         Returns:
             dict: returns cart data in ReturnDict object
         """
-        data = self.request.data
+        data = self.request.data    
         serializer = OrderItemCreateSerializer(data=data)
         serializer.is_valid(raise_exception=True)
         new_item = OrderItem.objects.create(
@@ -40,6 +42,15 @@ class CartService:
         cart = self.obj.get_queryset()
         order_items = list(OrderCartSelector.get_orderitems_of_cart(cart))
         
+        if order_items:
+            first_order_item = order_items[0]
+            print("="*100)
+            print(first_order_item.menu_item.restaurant.id, MenuItem.objects.filter(id=data['menu_item']).first().restaurant.id)
+            if first_order_item.menu_item.restaurant.id != MenuItem.objects.filter(id=data['menu_item']).first().restaurant.id:
+                raise ValidationError(
+                    "All menu items should be from one restaurant only"
+                )
+
         quantity_increament = False
         for order_item in order_items:
             if order_item.menu_item == new_item.menu_item:

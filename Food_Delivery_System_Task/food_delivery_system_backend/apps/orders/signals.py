@@ -68,16 +68,19 @@ def notify_restaurant_for_order(order):
     if not channel_layer:
         return
     
-    #sends message
-    async_to_sync(channel_layer.group_send)(
-        f'restaurant_{order.restaurant.id}',
-        {
-            'type': 'new_order',
-            'order_number': order.order_number,
-            'customer_name': order.customer.username,
-            'status': order.status,
-        }
-    )
+    try:
+        # async_to_sync safely runs the group_send coroutine
+        async_to_sync(channel_layer.group_send)(
+            f'restaurant_{order.restaurant.id}',
+            {
+                'type': 'new_order',
+                'order_number': order.order_number,
+                'customer_name': order.customer.user.username,
+                'status': order.status,
+            }
+        )
+    except Exception as e:
+        print(f"An unexpected error occurred: {e}")
     
     
 def notify_order_status_change(order):

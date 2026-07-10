@@ -31,6 +31,7 @@ class OrderSerializer(serializers.ModelSerializer):
     class Meta:
         model = Order
         fields = [
+            'id',
             'order_menu', 
             'restaurant', 
             'customer', 
@@ -47,6 +48,13 @@ class OrderSerializer(serializers.ModelSerializer):
             'can_review',
             'final_total',
             'item_count',
+            'created_at',
+            'updated_at'
+        ]
+        read_only_fields = [
+            'id',
+            'created_at',
+            'updated_at',
         ]
         
     def get_can_review(self, obj):
